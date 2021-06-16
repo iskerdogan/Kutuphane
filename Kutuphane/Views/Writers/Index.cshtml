@@ -1,0 +1,30 @@
+﻿@using Kutuphane.Models.Entity
+@model List<Writers>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Yazarlar</h2>
+<table class="table table-bordered">
+    <tr style="background-color:Highlight">
+        <th>Id</th>
+        <th>Ad</th>
+        <th>Soyad</th>
+        <th>Detay</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (Writers result in Model)
+    {
+                <tr>
+                    <td>@result.Id</td>
+                    <td>@result.Name</td>
+                    <td>@result.Surname</td>
+                    <td>@result.Detail</td>
+                    <td>@Html.ActionLink("Sil", "WriterDelete", new { id = result.Id }, new { @class = "btn btn-danger", onclick = "return confirm('Silmek istiyor musunuz?')" })</td>
+                    <td><a href="/Writers/FetchWriter/@result.Id" class="btn btn-info">Güncelle</a></td>
+                </tr>
+            }
+</table>
+<a href="/Writers/WriterAdd" class="btn btn-primary">Yazar ekle</a>

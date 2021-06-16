@@ -1,0 +1,60 @@
+﻿@model Kutuphane.Models.Entity.Members
+@{
+    ViewBag.Title = "MembersAdd";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<form class="form-group" method="post">
+    <div style="margin-top:15px">
+        <label>Ad</label>
+        @Html.TextBoxFor(p => p.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(p => p.Name, "", new { @style = "color:red" })
+    </div>
+
+    <div style="margin-top:15px">
+        <label>Soyad</label>
+        @Html.TextBoxFor(p => p.Surname, new { @class = "form-control" })
+        @Html.ValidationMessageFor(p => p.Surname, "", new { @style = "color:red" })
+    </div>
+
+    <div style="margin-top:15px">
+        <label>Mail</label>
+        @Html.TextBoxFor(p => p.Mail, new { @class = "form-control" })
+        @Html.ValidationMessageFor(p => p.Mail, "", new { @style = "color:red" })
+    </div>
+
+    <div style="margin-top:15px">
+        <label>Kullanıcı ad</label>
+        @Html.TextBoxFor(p => p.UserName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(p => p.UserName, "", new { @style = "color:red" })
+    </div>
+
+    <div style="margin-top:15px">
+        <label>Şifre</label>
+        @Html.TextBoxFor(p => p.Password, new { @class = "form-control" })
+        @Html.ValidationMessageFor(p => p.Password, "", new { @style = "color:red" })
+    </div>
+
+    <div style="margin-top:15px">
+        <label>Fotoğraf Linki</label>
+        @Html.TextBoxFor(p => p.Image, new { @class = "form-control" })
+        @Html.ValidationMessageFor(p => p.Image, "", new { @style = "color:red" })
+    </div>
+
+    <div style="margin-top:15px">
+        <label>Telefon</label>
+        @Html.TextBoxFor(p => p.PhoneNumber, new { @class = "form-control" })
+        @Html.ValidationMessageFor(p => p.PhoneNumber, "", new { @style = "color:red" })
+    </div>
+
+    <div style="margin-top:15px">
+        <label>Okul</label>
+        @Html.TextBoxFor(p => p.School, new { @class = "form-control" })
+        @Html.ValidationMessageFor(p => p.School, "", new { @style = "color:red" })
+    </div>
+
+    <div style="margin-top:15px">
+        <button class="btn btn-success" id="btn1">Ekle</button>
+    </div>
+</form>
+

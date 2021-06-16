@@ -1,0 +1,27 @@
+﻿@using Kutuphane.Models.Entity
+@model List<Categories>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Kategoriler</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Kategori Ad</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach(Categories result in Model)
+    { 
+    <tr>
+        <td>@result.Id</td>
+        <td>@result.Name</td>
+        <td><a href="~/Categories/CategoryDelete/@result.Id" class="btn btn-danger">Sil</a></td>
+        <td><a href="~/Categories/FetchCategory/@result.Id" class="btn btn-info">Güncelle</a></td>
+    </tr>
+    }
+</table>
+<a href="~/Categories/CategoryAdd" class="btn btn-primary">Kategori ekle</a>

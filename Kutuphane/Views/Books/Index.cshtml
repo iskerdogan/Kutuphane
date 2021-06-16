@@ -1,0 +1,46 @@
+﻿@using Kutuphane.Models.Entity
+@model List<Books>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Kitap</h2>
+@using (Html.BeginForm("Index", "Books", FormMethod.Get))
+            {
+<div style="margin-bottom:15px; margin-top:15px">
+    @Html.TextBox("search", null, new { @class = "form-control", placeholder = "Ara.." })
+</div>
+            }
+
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Ad</th>
+        <th>Yazar</th>
+        <th>Kategori</th>
+        <th>Basım Yılı</th>
+        <th>Yayınevi</th>
+        <th>Sayfa sayısı</th>
+        <th>Durum</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (Books result in Model)
+    {
+                <tr>
+                    <td>@result.Id</td>
+                    <td>@result.Name</td>
+                    <td>@result.Writers.Name @result.Writers.Surname</td>
+                    <td>@result.Categories.Name</td>
+                    <td>@result.Year</td>
+                    <td>@result.Publisher</td>
+                    <td>@result.NumberOfPages</td>
+                    <td>@result.Active</td>
+                    <td>@Html.ActionLink("Sil", "BookDelete", new { id = result.Id }, new { @class = "btn btn-danger", onclick = "return confirm('Silmek istiyor musunuz?')" })</td>
+                    <td><a href="/Books/FetchBook/@result.Id" class="btn btn-info">Güncelle</a></td>
+                </tr>
+        }
+    
+</table>
+<a href="/Books/BookAdd" class="btn btn-primary">Kitap ekle</a>

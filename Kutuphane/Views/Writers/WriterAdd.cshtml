@@ -1,0 +1,27 @@
+﻿@model Kutuphane.Models.Entity.Writers
+@{
+    ViewBag.Title = "WriterAdd";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+
+<form class="form-group" method="post">
+    <div></div>
+    <div style="margin-top:15px">
+        <label>Yazar Ad</label>
+        @Html.TextBoxFor(p => p.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(p => p.Name)
+    </div>
+    <div style="margin-top:15px">
+        <label>Yazar Soyad</label>
+        @Html.TextBoxFor(p => p.Surname, new { @class = "form-control" })
+        @Html.ValidationMessageFor(p => p.Surname)
+    </div>
+    <div style="margin-top:15px">
+        <label>Detay</label>
+        @Html.TextAreaFor(p => p.Detail, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-success">Ekle</button>
+    </div>
+</form>

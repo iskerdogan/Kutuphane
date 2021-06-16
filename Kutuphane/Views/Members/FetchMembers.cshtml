@@ -1,0 +1,42 @@
+﻿@model Kutuphane.Models.Entity.Members
+@{
+    ViewBag.Title = "FetchMembers";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+@using (Html.BeginForm("MembersUpdate", "Members", FormMethod.Post))
+{
+    <div style="margin-top:15px"></div>
+    <div class="form-group">
+        @Html.LabelFor(p => p.Id)
+        @Html.TextBoxFor(p => p.Id, new { @class = "form-control" })
+        <br />
+        <label>Ad</label>
+        @Html.TextBoxFor(p => p.Name, new { @class = "form-control" })
+        <br />
+        <label>Soyad</label>
+        @Html.TextBoxFor(p => p.Surname, new { @class = "form-control" })
+        <br />
+        <label>Mail</label>
+        @Html.TextBoxFor(p => p.Mail, new { @class = "form-control" })
+        <br />
+        <label>Kullanıcı ad</label>
+        @Html.TextBoxFor(p => p.UserName, new { @class = "form-control" })
+        <br />
+        <label>Şifre</label>
+        @Html.TextBoxFor(p => p.Password, new { @class = "form-control" })
+        <br />
+        <label>Resim linki</label>
+        @Html.TextBoxFor(p => p.Image, new { @class = "form-control" })
+        <br />
+        <label>Telefon</label>
+        @Html.TextBoxFor(p => p.PhoneNumber, new { @class = "form-control" })
+        <br />
+        <label>Okul</label>
+        @Html.TextBoxFor(p => p.School, new { @class = "form-control" })
+    </div>
+    <div>
+        <button class="btn btn-success">Güncelle</button>
+    </div>
+}
+

@@ -1,0 +1,43 @@
+﻿@using Kutuphane.Models.Entity
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Members>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Üyeler</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Ad</th>
+        <th>Soyad</th>
+        <th>Mail</th>
+        <th>Kullanıcı Ad</th>
+        <th>Şifre</th>
+        <th>Telefon</th>
+        <th>Okul</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (Members result in Model)
+    {
+        <tr>
+            <td>@result.Id</td>
+            <td>@result.Name</td>
+            <td>@result.Surname</td>
+            <td>@result.Mail</td>
+            <td>@result.UserName</td>
+            <td>@result.Password</td>
+            <td>@result.PhoneNumber</td>
+            <td>@result.School</td>
+            <td><a href="~/Members/MembersDelete/@result.Id" class="btn btn-danger">Sil</a></td>
+            <td><a href="~/Members/FetchMembers/@result.Id" class="btn btn-info">Güncelle</a></td>
+        </tr>
+    }
+</table>
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
+
+<a href="~/Members/MembersAdd" class="btn btn-primary">Üye ekle</a>

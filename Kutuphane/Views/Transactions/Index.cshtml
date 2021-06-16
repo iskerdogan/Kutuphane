@@ -1,0 +1,33 @@
+﻿@using Kutuphane.Models.Entity
+@model List<Transactions>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Hareketler</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Ad</th>
+        <th>Üye</th>
+        <th>Personel</th>
+        <th>Alış Tarihi</th>
+        <th>Üye İade Tarihi</th>
+        <th>İşlem</th>
+    </tr>
+    @foreach (Transactions result in Model)
+    {
+        <tr>
+            <td>@result.Id</td>
+            <td>@result.Books.Name</td>
+            <td>@result.Members.Name @result.Members.Surname</td>
+            <td>@result.Staff.NameSurname</td>
+            <td>@Convert.ToDateTime(@result.PurchaseDate).ToString("dd/MM/yyyy")</td>
+            <td>@Convert.ToDateTime(@result.MemberReturnDate).ToString("dd/MM/yyyy")</td>
+            <td><a href="#" class="btn btn-info">Detaylar</a></td>
+        </tr>
+    }
+
+</table>

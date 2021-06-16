@@ -1,0 +1,27 @@
+﻿@using Kutuphane.Models.Entity
+@model List<Staff>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Personel Ad</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (Staff result in Model)
+    {
+        <tr>
+            <td>@result.Id</td>
+            <td>@result.NameSurname</td>
+            <td><a href="~/Staff/StaffDelete/@result.Id" class="btn btn-danger">Sil</a></td>
+            <td><a href="~/Staff/FetchStaff/@result.Id" class="btn btn-info">Güncelle</a></td>
+        </tr>
+    }
+</table>
+<a href="~/Staff/StaffAdd" class="btn btn-primary">Personel ekle</a>
