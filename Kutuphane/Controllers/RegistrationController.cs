@@ -25,6 +25,8 @@ namespace Kutuphane.Controllers
             {
                 return View("Register");
             }
+            member.Image= "https://i.hizliresim.com/m7hjvhh.jpg";
+            member.School = "Okul bilgisi bulunmamaktadır.";
             kutuphaneEntities.Members.Add(member);
             kutuphaneEntities.SaveChanges();
             return RedirectToAction("Login","Login");

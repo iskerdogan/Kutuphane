@@ -13,7 +13,7 @@ namespace Kutuphane.Controllers
         KutuphaneEntities kutuphaneEntities = new KutuphaneEntities();
         public ActionResult Index()
         {
-            var result = kutuphaneEntities.Categories.ToList();
+            var result = kutuphaneEntities.Categories.Where(p=>p.Active==true).ToList();
             return View(result);
         }
 
@@ -34,7 +34,8 @@ namespace Kutuphane.Controllers
         public ActionResult CategoryDelete(int id)
         {
             var result = kutuphaneEntities.Categories.Find(id);
-            kutuphaneEntities.Categories.Remove(result);
+            //kutuphaneEntities.Categories.Remove(result);
+            result.Active = false;
             kutuphaneEntities.SaveChanges();
             return RedirectToAction("Index");
         }

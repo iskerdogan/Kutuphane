@@ -12,19 +12,11 @@ namespace Kutuphane.Models.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class Categories
+    public partial class Notifications
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Categories()
-        {
-            this.Books = new HashSet<Books>();
-        }
-    
         public int Id { get; set; }
-        public string Name { get; set; }
-        public Nullable<bool> Active { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Books> Books { get; set; }
+        public string Category { get; set; }
+        public string NotificationContent { get; set; }
+        public Nullable<System.DateTime> Date { get; set; }
     }
 }

@@ -1,0 +1,23 @@
+﻿@using Kutuphane.Models.Entity
+@model List<Notifications>
+@{
+    ViewBag.Title = "Notifications";
+    Layout = "~/Views/Shared/Membersdashboard.cshtml";
+}
+
+<h2>Duyurular</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>Kategori</th>
+        <th>İçerik</th>
+        <th>Tarih</th>
+    </tr>
+    @foreach (Notifications result in Model)
+    {
+        <tr>
+            <td>@result.Category</td>
+            <td>@result.NotificationContent</td>
+            <td>@Convert.ToDateTime(@result.Date).ToString("dd/MM/yyyy")</td>
+        </tr>
+    }
+</table>

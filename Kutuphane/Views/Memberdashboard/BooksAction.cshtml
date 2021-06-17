@@ -1,0 +1,25 @@
+﻿@using Kutuphane.Models.Entity
+@model List<Transactions>
+@{
+    ViewBag.Title = "BooksAction";
+    Layout = "~/Views/Shared/Membersdashboard.cshtml";
+}
+
+<h2>BooksAction</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Ad</th>
+        <th>Alış Tarihi</th>
+        <th>Üye İade Tarihi</th>
+    </tr>
+    @foreach (Transactions result in Model)
+        {
+            <tr>
+                <td>@result.Books.Name</td>
+                <td>@Convert.ToDateTime(@result.PurchaseDate).ToString("dd/MM/yyyy")</td>
+                <td>@Convert.ToDateTime(@result.MemberReturnDate).ToString("dd/MM/yyyy")</td>
+            </tr>
+        }
+
+</table>

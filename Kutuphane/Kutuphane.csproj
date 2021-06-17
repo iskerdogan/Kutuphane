@@ -144,6 +144,7 @@
     <Compile Include="Controllers\MemberdashboardController.cs" />
     <Compile Include="Controllers\MembersController.cs" />
     <Compile Include="Controllers\MessagesController.cs" />
+    <Compile Include="Controllers\NotificationsController.cs" />
     <Compile Include="Controllers\RegistrationController.cs" />
     <Compile Include="Controllers\ShowcaseController.cs" />
     <Compile Include="Controllers\StaffController.cs" />
@@ -188,6 +189,9 @@
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Entity\MoneyCase.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entity\Notifications.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entity\Penalties.cs">
@@ -297,7 +301,6 @@
     <Content Include="memberDashboard\src\img\bg4.jpg" />
     <Content Include="memberDashboard\src\img\favicon.png" />
     <Content Include="memberDashboard\src\img\user.jpg" />
-    <Content Include="memberDashboard\src\index.html" />
     <Content Include="memberDashboard\src\js\main.js" />
     <Content Include="Models\Entity\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -634,6 +637,15 @@
     <Content Include="Views\Memberdashboard\Home.cshtml" />
     <Content Include="Views\Messages\Index.cshtml" />
     <Content Include="Views\Messages\NewMessage.cshtml" />
+    <Content Include="Views\Messages\PostedMessage.cshtml" />
+    <Content Include="Views\Memberdashboard\BooksAction.cshtml" />
+    <Content Include="Views\Writers\WriterBooks.cshtml" />
+    <Content Include="Views\Members\BookHistory.cshtml" />
+    <Content Include="Views\Notifications\Index.cshtml" />
+    <Content Include="Views\Notifications\NewNotification.cshtml" />
+    <Content Include="Views\Notifications\FetchNotification.cshtml" />
+    <Content Include="Views\Notifications\NotificationContent.cshtml" />
+    <Content Include="Views\Memberdashboard\Notifications.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace Kutuphane.Controllers
 {
@@ -35,6 +36,26 @@ namespace Kutuphane.Controllers
             kutuphaneEntities.SaveChanges();
             return RedirectToAction("Home");
 
+        }
+
+        public ActionResult BooksAction()
+        {
+            var mail = (string)Session["Mail"];
+            var id = kutuphaneEntities.Members.Where(p => p.Mail == mail.ToString()).Select(p => p.Id).FirstOrDefault();
+            var result = kutuphaneEntities.Transactions.Where(p => p.MemberId == id).ToList();
+            return View(result);
+        }
+
+        public ActionResult Notifications()
+        {
+            var result = kutuphaneEntities.Notifications.ToList();
+            return View(result);
+        }
+
+        public ActionResult LogOut()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Login","Login");
         }
     }
 }

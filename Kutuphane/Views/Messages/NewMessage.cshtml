@@ -1,4 +1,4 @@
-﻿
+﻿@model Kutuphane.Models.Entity.Messages
 @{
     ViewBag.Title = "NewMessage";
     Layout = "~/Views/Shared/Membersdashboard.cshtml";
@@ -6,3 +6,20 @@
 
 <h2>NewMessage</h2>
 
+<form class="form-group" method="post">
+    <div style="margin-top:15px">
+        <label>Alıcı Mail</label>
+        @Html.TextBoxFor(p => p.GetedByMember, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Konu</label>
+        @Html.TextBoxFor(p => p.Subject, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Mesaj</label>
+        @Html.TextAreaFor(p => p.MessageContent, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-success" id="btn1">Gönder</button>
+    </div>
+</form>

@@ -1,15 +1,15 @@
 ﻿@using Kutuphane.Models.Entity
 @model List<Messages>
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "PostedMessage";
     Layout = "~/Views/Shared/Membersdashboard.cshtml";
 }
 
-<h2>Gelen Mesajlar</h2>
+<h2>Gönderilen Mesajlar</h2>
 
 <table class="table table-bordered">
     <tr>
-        <th>Gönderen</th>
+        <th>Gönderilen Mail</th>
         <th>Konu</th>
         <th>Mesaj</th>
         <th>Tarih</th>
@@ -17,11 +17,11 @@
     @foreach (Messages result in Model)
     {
         <tr>
-            <td>@result.PostedByMember</td>
+            <td>@result.GetedByMember</td>
             <td>@result.Subject</td>
             <td>@result.MessageContent</td>
             <td>@result.Date</td>
         </tr>
- 
+
     }
 </table>

@@ -1,0 +1,27 @@
+﻿@using Kutuphane.Models.Entity
+@model List<Transactions>
+@{
+    ViewBag.Title = "BookHistory";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>@ViewBag.NameSurname Kitap Hareketleri</h2>
+<table class="table table-danger">
+    <tr>
+        <th>Kitap Ad</th>
+        <th>Personel Ad</th>
+        <th>Alış Tarihi</th>
+        <th>Zorunlu iade tarihi</th>
+        <th>Üyenin iade ettiği tarhi</th>
+    </tr>
+    @foreach (Transactions result in Model)
+    {
+        <tr>
+            <td>@result.Books.Name</td>
+            <td>@result.Staff.NameSurname</td>
+            <td>@Convert.ToDateTime(@result.PurchaseDate).ToString("dd/MM/yyyy") </td>
+            <td>@Convert.ToDateTime(@result.ReturnDate).ToString("dd/MM/yyyy")</td>
+            <td>@Convert.ToDateTime(@result.MemberReturnDate).ToString("dd/MM/yyyy")</td>
+        </tr>
+    }
+</table>

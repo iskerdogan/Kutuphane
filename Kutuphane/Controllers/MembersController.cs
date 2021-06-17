@@ -15,7 +15,7 @@ namespace Kutuphane.Controllers
         KutuphaneEntities kutuphaneEntities = new KutuphaneEntities();
         public ActionResult Index(int page=1)
         {
-            var result = kutuphaneEntities.Members.ToList().ToPagedList(page,3);
+            var result = kutuphaneEntities.Members.ToList().ToPagedList(page,10);
             return View(result);
         }
 
@@ -64,6 +64,14 @@ namespace Kutuphane.Controllers
             result.Image = members.Image;
             kutuphaneEntities.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult BookHistory(int id)
+        {
+            var result = kutuphaneEntities.Transactions.Where(p => p.MemberId == id).ToList();
+            var memberName = kutuphaneEntities.Members.Where(p => p.Id == id).Select(p => p.Name + " " + p.Surname).FirstOrDefault();
+            ViewBag.NameSurname = memberName;
+            return View(result);
         }
     }
 }

@@ -7,24 +7,24 @@
 <form class="form-group" method="post">
     <div></div>
     <div style="margin-top:15px">
-        <label>Üye Id</label>
-        @Html.TextBoxFor(p => p.MemberId, new { @class = "form-control" })
+        <label>Üye</label>
+        @Html.DropDownListFor(p => p.Members.Id, (List<SelectListItem>)ViewBag.Members, new { @class = "form-control" })
     </div>
     <div style="margin-top:15px">
-        <label>Kitap Id</label>
-        @Html.TextBoxFor(p => p.BookId, new { @class = "form-control" })
+        <label>Kitap</label>
+        @Html.DropDownListFor(p => p.Books.Id, (List<SelectListItem>)ViewBag.Books, new { @class = "form-control" })
     </div>
     <div style="margin-top:15px">
         <label>Personel Id</label>
-        @Html.TextBoxFor(p => p.StaffId, new { @class = "form-control" })
+        @Html.DropDownListFor(p => p.Staff.Id, (List<SelectListItem>)ViewBag.Staff, new { @class = "form-control" })
     </div>
     <div style="margin-top:15px">
         <label>Kitap alış tarihi</label>
-        <input type="text" class="form-control" name="PurchaseDate" value="@DateTime.Now.ToShortDateString()" />
+        <input type="text" class="form-control" readonly="readonly" name="PurchaseDate" value="@DateTime.Now.ToShortDateString()" />
     </div>
     <div style="margin-top:15px">
         <label>Kitap iade tarihi</label>
-        <input type="text" class="form-control" name="ReturnDate" value="@DateTime.Now.AddDays(7).ToShortDateString()" />
+        <input type="text" class="form-control" readonly="readonly" name="ReturnDate" value="@DateTime.Now.AddDays(7).ToShortDateString()" />
     </div>
     <div style="margin-top:15px">
         <button class="btn btn-success">Ödünç ver</button>

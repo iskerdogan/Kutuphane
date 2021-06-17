@@ -1,0 +1,27 @@
+﻿@model Kutuphane.Models.Entity.Notifications
+@{
+    ViewBag.Title = "FetchNotification";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>FetchNotification</h2>
+@using (Html.BeginForm("NotificationUpdate", "Notifications", FormMethod.Post))
+{
+    <div style="margin-top:15px"></div>
+    <div class="form-group">
+        @Html.LabelFor(p => p.Id)
+        @Html.TextBoxFor(p => p.Id, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(p => p.Category)
+        @Html.TextBoxFor(p => p.Category, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(p => p.NotificationContent)
+        @Html.TextBoxFor(p => p.NotificationContent, new { @class = "form-control" }) 
+        <br />
+        @Html.LabelFor(p => p.Date)
+        @Html.TextBoxFor(p => p.Date, new { @class = "form-control" })
+    </div>
+    <div>
+        <button class="btn btn-success">Güncelle</button>
+    </div>
+}

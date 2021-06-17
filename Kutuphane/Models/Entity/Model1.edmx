@@ -32,6 +32,7 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="20" />
+          <Property Name="Active" Type="bit" />
         </EntityType>
         <EntityType Name="Contacts">
           <Key>
@@ -75,6 +76,15 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Months" Type="nvarchar" MaxLength="20" />
           <Property Name="TotalMoney" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="Notifications">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Category" Type="varchar" MaxLength="50" />
+          <Property Name="NotificationContent" Type="varchar" MaxLength="250" />
+          <Property Name="Date" Type="datetime" />
         </EntityType>
         <EntityType Name="Penalties">
           <Key>
@@ -218,6 +228,7 @@
           <EntitySet Name="Members" EntityType="Self.Members" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Messages" EntityType="Self.Messages" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MoneyCase" EntityType="Self.MoneyCase" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Notifications" EntityType="Self.Notifications" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Penalties" EntityType="Self.Penalties" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Staff" EntityType="Self.Staff" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
@@ -280,6 +291,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Books" Relationship="Self.FK_Books_Categories" FromRole="Categories" ToRole="Books" />
+          <Property Name="Active" Type="Boolean" />
         </EntityType>
         <EntityType Name="Members">
           <Key>
@@ -488,6 +500,7 @@
           <EntitySet Name="About" EntityType="KutuphaneModel.About" />
           <EntitySet Name="Contacts" EntityType="KutuphaneModel.Contacts" />
           <EntitySet Name="Messages" EntityType="KutuphaneModel.Messages" />
+          <EntitySet Name="Notifications" EntityType="KutuphaneModel.Notifications" />
         </EntityContainer>
         <EntityType Name="About">
           <Key>
@@ -517,6 +530,15 @@
           <Property Name="MessageContent" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Name="Date" Type="DateTime" Precision="0" />
         </EntityType>
+        <EntityType Name="Notifications">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NotificationContent" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -541,6 +563,7 @@
           <EntitySetMapping Name="Categories">
             <EntityTypeMapping TypeName="KutuphaneModel.Categories">
               <MappingFragment StoreEntitySet="Categories">
+                <ScalarProperty Name="Active" ColumnName="Active" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
@@ -652,6 +675,16 @@
                 <ScalarProperty Name="Subject" ColumnName="Subject" />
                 <ScalarProperty Name="GetedByMember" ColumnName="GetedByMember" />
                 <ScalarProperty Name="PostedByMember" ColumnName="PostedByMember" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Notifications">
+            <EntityTypeMapping TypeName="KutuphaneModel.Notifications">
+              <MappingFragment StoreEntitySet="Notifications">
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="NotificationContent" ColumnName="NotificationContent" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

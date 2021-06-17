@@ -58,5 +58,13 @@ namespace Kutuphane.Controllers
             kutuphaneEntities.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public ActionResult WriterBooks(int id)
+        {
+            var result = kutuphaneEntities.Books.Where(p => p.WriterId == id).ToList();
+            var writerName = kutuphaneEntities.Writers.Where(p => p.Id == id).Select(p => p.Name + " " + p.Surname).FirstOrDefault();
+            ViewBag.NameSurname = writerName;
+            return View(result);
+        }
     }
 }

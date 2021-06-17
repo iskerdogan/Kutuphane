@@ -1,0 +1,25 @@
+﻿@model Kutuphane.Models.Entity.Notifications
+@{
+    ViewBag.Title = "NewNotification";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Yeni Duyuru</h2>
+<form class="form-group" method="post">
+    <div style="margin-top:15px">
+        <label>Duyuru Kategorisi</label>
+        @Html.TextBoxFor(p => p.Category, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Duyuru İçeriği</label>
+        @Html.TextBoxFor(p => p.NotificationContent, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Duyuru Tarih</label>
+        @Html.TextBoxFor(p => p.Date, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-success" id="btn1">Ekle</button>
+    </div>
+</form>
+

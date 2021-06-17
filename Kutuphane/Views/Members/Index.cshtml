@@ -16,11 +16,10 @@
         <th>Soyad</th>
         <th>Mail</th>
         <th>Kullanıcı Ad</th>
-        <th>Şifre</th>
-        <th>Telefon</th>
         <th>Okul</th>
         <th>Sil</th>
         <th>Güncelle</th>
+        <th>Kitap Hareketleri</th>
     </tr>
     @foreach (Members result in Model)
     {
@@ -30,11 +29,10 @@
             <td>@result.Surname</td>
             <td>@result.Mail</td>
             <td>@result.UserName</td>
-            <td>@result.Password</td>
-            <td>@result.PhoneNumber</td>
             <td>@result.School</td>
             <td><a href="~/Members/MembersDelete/@result.Id" class="btn btn-danger">Sil</a></td>
             <td><a href="~/Members/FetchMembers/@result.Id" class="btn btn-info">Güncelle</a></td>
+            <td><a href="~/Members/BookHistory/@result.Id" class="btn btn-success" style="background-color:lightseagreen">Hareketler</a></td>
         </tr>
     }
 </table>

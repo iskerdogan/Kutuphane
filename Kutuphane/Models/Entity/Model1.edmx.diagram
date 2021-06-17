@@ -24,6 +24,7 @@
         <EntityTypeShape EntityType="KutuphaneModel.About" Width="1.5" PointX="0.75" PointY="0.75" />
         <EntityTypeShape EntityType="KutuphaneModel.Contacts" Width="1.5" PointX="6.375" PointY="0.75" />
         <EntityTypeShape EntityType="KutuphaneModel.Messages" Width="1.5" PointX="8.375" PointY="0.75" />
+        <EntityTypeShape EntityType="KutuphaneModel.Notifications" Width="1.5" PointX="8.375" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
