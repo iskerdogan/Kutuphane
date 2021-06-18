@@ -42,6 +42,10 @@ namespace Kutuphane.Controllers
             return RedirectToAction("PostedMessage");
         }
 
-        
+        public PartialViewResult PartialMailSidebar()
+        {
+            return PartialView();
+        }
+
     }
 }

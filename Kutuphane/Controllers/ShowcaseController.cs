@@ -8,6 +8,7 @@ using Kutuphane.Models.Classes;
 
 namespace Kutuphane.Controllers
 {
+    [AllowAnonymous]
     public class ShowcaseController : Controller
     {
         // GET: Showcase
@@ -28,7 +29,7 @@ namespace Kutuphane.Controllers
         {
             kutuphaneEntities.Contacts.Add(contacts);
             kutuphaneEntities.SaveChanges();
-            return RedirectToAction("Index");
+            return View("Index");
         } 
     }
 }

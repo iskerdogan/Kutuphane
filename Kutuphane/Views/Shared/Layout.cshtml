@@ -1,138 +1,195 @@
-﻿@{
-
+﻿
+@{
     Layout = null;
-
 }
 
-<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-
 <!DOCTYPE html>
-
-<html>
+<html lang="tr">
 
 <head>
-
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+          content="Responsive sidebar template with sliding effect and dropdown menu based on bootstrap 3">
+    <title>Admin Panelim</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- using online links -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+          integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet" href="//malihu.github.io/custom-scrollbar/jquery.mCustomScrollbar.min.css">
 
-    <style>
-
-        body {
-            font-family: "Lato", sans-serif;
-        }
-
-
-
-        .sidebar {
-            height: 100%;
-            width: 240px;
-            position: fixed;
-            z-index: 1;
-            top: 0;
-            left: 0;
-            background-color: #111;
-            overflow-x: hidden;
-            padding-top: 16px;
-        }
-
-
-
-            .sidebar a {
-                padding: 10px 14px 10px 10px;
-                text-decoration: none;
-                font-size: 18px;
-                color: white;
-                display: block;
-            }
-
-
-
-                .sidebar a:hover {
-                    color: #0094ff;
-                }
-
-
-
-        .main {
-            margin-left: 240px; /* Same as the width of the sidenav */
-
-            padding: 0px 10px;
-        }
-
-
-
-        @@media screen and (max-height: 450px) {
-
-            .sidebar {
-                padding-top: 15px;
-            }
-
-
-
-                .sidebar a {
-                    font-size: 18px;
-                }
-        }
-    </style>
-
+    <link href="~/memberDashboard/src/css/main.css" rel="stylesheet" />
+    <link href="~/memberDashboard/src/css/sidebar-themes.css" rel="stylesheet" />
+    <link rel="shortcut icon" type="image/png" href="https://img.icons8.com/dusk/64/000000/pencil--v1.png" />
 </head>
 
 <body>
-
-
-
-    <div class="sidebar">
-
-        <a href="/istatistik/Index/"><i class="glyphicon glyphicon-home"></i> &nbsp; Ana Sayfa</a>
-
-        <a href="/Categories/Index/"><i class="glyphicon glyphicon-list"></i> &nbsp; Kategoriler</a>
-
-        <a href="/Books/Index/"><i class="glyphicon glyphicon-book"></i> &nbsp; Kitaplar</a>
-
-        <a href="/Writers/Index/"><i class="glyphicon glyphicon-pencil"></i> &nbsp; Yazarlar</a>
-
-        <a href="/Members/Index/"><i class="glyphicon glyphicon-user"></i> &nbsp; Üyeler</a>
-
-        <a href="/Staff/Index/"><i class="glyphicon glyphicon-tower"></i> &nbsp; Personeller</a>
-
-        <a href="/Loans/ToLend/"><i class="glyphicon glyphicon-circle-arrow-right"></i> &nbsp; Ödünç Kitap Ver</a>
-
-        <a href="/Loans/Index/"><i class="glyphicon glyphicon-circle-arrow-left"></i> &nbsp; Ödünç Kitap Al</a>
-
-        <a href="/Statistics/Index/"><i class="glyphicon glyphicon-sort"></i> &nbsp; İstatistikler</a>
-
-        <a href="/Notifications/Index/"><i class="glyphicon glyphicon-earphone"></i> &nbsp; Duyurular</a>
-
-        <a href="/Transactions/Index/"><i class="glyphicon glyphicon-dashboard"></i> &nbsp; İşlemler</a>
-
-        <a href="/Statistics/WeatherForecast/"><i class="glyphicon glyphicon-cloud"></i> &nbsp; Hava Raporu</a>
-
-        <a href="/Statistics/WeatherForecast2/"><i class="glyphicon glyphicon-plus"></i> &nbsp; Hava Kartları </a>
-
-        <a href="/Statistics/Gallery/"><i class="glyphicon glyphicon-picture"></i> &nbsp; Galeri</a>
-
-        <a href="/Showcase/Index/"><i class="glyphicon glyphicon-gift"></i> &nbsp; Vitrin</a>
-
-        <a href="#"><i class="glyphicon glyphicon-cog"></i> &nbsp; Ayarlar</a>
-
-        <a href="#"><i class="glyphicon glyphicon-phone"></i> &nbsp; Yardım</a>
-
-        <a href="#"><i class="glyphicon glyphicon-remove-sign"></i> &nbsp; Çıkış</a>
-
+    <div class="page-wrapper default-theme bg1 toggled boder-radius-on">
+        <nav id="sidebar" class="sidebar-wrapper">
+            <div class="sidebar-content">
+                <!-- sidebar-brand  -->
+                <div class="sidebar-item sidebar-brand">
+                    <a href="#">Admin Panelim</a>
+                </div>
+                <!-- sidebar-header  -->
+                <div class="sidebar-item sidebar-header d-flex flex-nowrap">
+                    <div class="user-pic">
+                        <img class="img-responsive img-rounded" src="~/memberDashboard/src/img/user.jpg" alt="User picture">
+                    </div>
+                    <div class="user-info">
+                        <span class="user-name">
+                            Name
+                            <strong>Surname</strong>
+                        </span>
+                        <span class="user-role">Admin</span>
+                        <span class="user-status">
+                            <i class="fa fa-circle"></i>
+                            <span>Online</span>
+                        </span>
+                    </div>
+                </div>
+                <!-- sidebar-menu  -->
+                <div class=" sidebar-item sidebar-menu">
+                    <ul>
+                        <li class="header-menu">
+                            <span>General</span>
+                        </li>
+                        <li>
+                            <a href="/Statistics/Index/">
+                                <i class="fa fa-home"></i>
+                                <span class="menu-text">Anasayfa</span>
+                                <span class="badge badge-pill badge-primary">Beta</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Categories/Index/">
+                                <i class="fa fa-bars"></i>
+                                <span class="menu-text">Kategoriler</span>
+                                <span class="badge badge-pill badge-primary">Beta</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Writers/Index/">
+                                <i class="fas fa-pen-nib"></i>
+                                <span class="menu-text">Yazarlar</span>
+                                <span class="badge badge-pill badge-primary">Beta</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Books/Index/">
+                                <i class="fa fa-book"></i>
+                                <span class="menu-text">Kitaplar</span>
+                                <span class="badge badge-pill badge-primary">Beta</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Members/Index/">
+                                <i class="fa fa-users"></i>
+                                <span class="menu-text">Üyeler</span>
+                                <span class="badge badge-pill badge-primary">Beta</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Staff/Index/">
+                                <i class="fas fa-briefcase"></i>
+                                <span class="menu-text">Personeller</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Loans/ToLend/">
+                                <i class="fa fa-arrow-circle-left"></i>
+                                <span class="menu-text">Ödünç Kitap Ver</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Loans/Index/">
+                                <i class="fa fa-arrow-circle-right"></i>
+                                <span class="menu-text">Ödünç Kitap Al</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Transactions/Index/">
+                                <i class="fa fa-info"></i>
+                                <span class="menu-text">İşlemler</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Notifications/Index/">
+                                <i class="fa fa-bell"></i>
+                                <span class="menu-text">Duyurular</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Statistics/WeatherForecast2/">
+                                <i class="fa fa-cloud"></i>
+                                <span class="menu-text">Hava Kartları</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Statistics/Gallery/">
+                                <i class="fas fa-images"></i>
+                                <span class="menu-text">Galeri</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Showcase/Index/">
+                                <i class="fas fa-globe"></i>
+                                <span class="menu-text">Vitrin</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- sidebar-menu  -->
+            </div>
+            <!-- sidebar-footer  -->
+            <div class="sidebar-footer">
+                <div class="dropdown">
+                    <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-cog"></i>
+                        <span class="badge-sonar"></span>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuMessage">
+                        <a class="dropdown-item" href="#">Profilim</a>
+                        <a class="dropdown-item" href="#">Yardım</a>
+                        <a class="dropdown-item" href="#">Ayarlar</a>
+                    </div>
+                </div>
+                <div>
+                    <a href="#">
+                        <i class="fa fa-power-off"></i>
+                    </a>
+                </div>
+                <div class="pinned-footer">
+                    <a href="#">
+                        <i class="fas fa-ellipsis-h"></i>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        <!-- page-content  -->
+        <main class="page-content pt-2">
+            <div id="overlay" class="overlay"></div>
+            <div class="container-fluid p-5">
+                @RenderBody()
+            </div>
+        </main>
+        <!-- page-content" -->
     </div>
-
-
-
-    <div class="main">
-
-        @RenderBody()
-
-    </div>
-
-
+    <!-- page-wrapper -->
+    <!-- using online scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+            integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+            integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous">
+    </script>
+    <script src="//malihu.github.io/custom-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="~/memberDashboard/src/js/main.js"></script>
 
 </body>
 
 </html>
-

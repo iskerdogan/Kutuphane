@@ -1,74 +1,291 @@
-﻿@model Kutuphane.Models.Entity.Members
+﻿@using Kutuphane.Models.Entity
+@model List<Notifications >
 @{
     ViewBag.Title = "Home";
     Layout = "~/Views/Shared/Membersdashboard.cshtml";
 }
 
-<h2>Home</h2>
 
-@using (Html.BeginForm("HomeProfile", "Memberdashboard", FormMethod.Post))
-{
+<!DOCTYPE html>
 
-    <table class="table table-hover" style="margin-top:30px">
-        <tr>
-            <td>
-                <label style="font-weight:bolder">Kütüphane Numarası:</label>
-                @Html.TextBoxFor(p => p.Id, new { @class = "form-control", @readonly= "yes" })
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <label style="font-weight:bolder">Mail adresi:</label>
-                @Html.TextBoxFor(p=>p.Mail, new { @class = "form-control", @readonly = "yes" })
-                @*@HttpContext.Current.User.Identity.Name*@
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <label style="font-weight:bolder">Ad</label>
-                @Html.TextBoxFor(p => p.Name, new { @class = "form-control" })
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <label style="font-weight:bolder">Soyad</label>
-                @Html.TextBoxFor(p => p.Surname, new { @class = "form-control" })
+<html>
 
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <label style="font-weight:bolder">Kullanıcı ad:</label>
-                @Html.TextBoxFor(p => p.UserName, new { @class = "form-control" })
+<head>
 
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <label style="font-weight:bolder">Şifre:</label>
-                @Html.TextBoxFor(p => p.Password, new { @class = "form-control" })
+    <meta charset="utf-8">
 
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <label style="font-weight:bolder">Okul:</label>
-                @Html.TextBoxFor(p => p.School, new { @class = "form-control" })
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <label style="font-weight:bolder">Fotoğraf Link:</label>
-                @Html.TextBoxFor(p => p.Image, new { @class = "form-control" })
+    <title>AdminLTE 3 | User Profile</title>
 
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <button class="btn btn-outline-warning">Güncelle</button>
+    <!-- Tell the browser to be responsive to screen width -->
 
-            </td>
-        </tr>
-    </table>
-}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+
+    <!-- Ionicons -->
+
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
+    <!-- Theme style -->
+
+    <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+
+    <!-- Google Font: Source Sans Pro -->
+
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+</head>
+
+<body class="hold-transition sidebar-mini">
+
+    <!-- Navbar -->
+    <!-- Content Wrapper. Contains page content -->
+    <!-- Content Header (Page header) -->
+
+
+
+    <!-- Main content -->
+
+    <section class="content">
+
+        <div class="container-fluid">
+
+            <div class="row">
+
+                <div class="col-md-3">
+
+
+
+                    <!-- Profile Image -->
+
+                    <div class="card card-primary card-outline">
+
+                        <div class="card-body box-profile">
+
+                            <div class="text-center">
+
+                                <img class="profile-user-img img-fluid img-circle"
+                                     src="@ViewBag.Image"
+                                     alt="User profile picture">
+
+                            </div>
+
+
+                            <br />
+                            <h3 class="profile-username text-center">@ViewBag.Name @ViewBag.Surname</h3>
+
+
+
+                            <p class="text-muted text-center">Üye</p>
+
+
+
+                            <ul class="list-group list-group-unbordered mb-3">
+
+                                <li class="list-group-item">
+
+                                    <b>Alınan Toplam Kitap</b> <a class="float-right">@ViewBag.BooksCount</a>
+
+                                </li>
+
+                                <li class="list-group-item">
+
+                                    <b>Mesaj Sayısı</b> <a class="float-right">@ViewBag.MesssagesCount</a>
+
+                                </li>
+
+                                <li class="list-group-item">
+
+                                    <b>Duyuru Sayısı</b> <a class="float-right">@ViewBag.NotificationsCount</a>
+
+                                </li>
+
+                            </ul>
+
+
+                        </div>
+
+                        <!-- /.card-body -->
+
+                    </div>
+                    <br />
+                    <!-- /.card -->
+                    <!-- About Me Box -->
+
+                    <div class="card card-primary">
+
+                        <div class="card-header">
+
+                            <h3 class="card-title">Hakkımda</h3>
+
+                        </div>
+
+                        <!-- /.card-header -->
+
+                        <div class="card-body">
+
+                            <strong><i class="fas fa-book mr-1"></i> Üniversite</strong>
+
+
+
+                            <p class="text-muted">
+
+                                @ViewBag.School
+
+                            </p>
+
+
+
+                            <hr>
+
+
+
+                            <strong><i class="fas fa-map-marker-alt mr-1"></i> Telefon</strong>
+
+
+
+                            <p class="text-muted">@ViewBag.PhoneNumber</p>
+
+
+
+                            <hr>
+
+
+
+                            <strong><i class="fas fa-pencil-alt mr-1"></i> Kullanıcı Adı</strong>
+
+
+
+                            <p class="text-muted">
+
+                                <span class="tag tag-danger">@ViewBag.UserName</span>
+
+                            </p>
+
+
+
+                            <hr>
+
+
+
+                            <strong><i class="far fa-file-alt mr-1"></i> Mail</strong>
+
+
+
+                            <p class="text-muted">@ViewBag.Mail</p>
+
+                        </div>
+
+                        <!-- /.card-body -->
+
+                    </div>
+
+                    <!-- /.card -->
+
+                </div>
+
+                <!-- /.col -->
+
+                <div class="col-md-9">
+
+                    <div class="card">
+
+                        <div class="card-header p-2">
+
+                            <ul class="nav nav-pills">
+
+                                <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Duyurular</a></li>
+
+
+
+                                <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Ayarlar</a></li>
+
+                            </ul>
+
+                        </div><!-- /.card-header -->
+
+                        <div class="card-body">
+
+                            <div class="tab-content">
+
+                                <div class="active tab-pane" id="activity">
+
+                                    <!-- Post -->
+
+                                    @Html.Partial("Partial1")
+
+                                    <!--Post-->
+                                </div>
+
+                                <div class="tab-pane" id="settings">
+
+                                    @Html.Action("Partial2","Memberdashboard")
+
+                                </div>
+
+                                <!-- /.tab-pane -->
+
+                            </div>
+
+                            <!-- /.tab-content -->
+
+                        </div><!-- /.card-body -->
+
+                    </div>
+
+                    <!-- /.nav-tabs-custom -->
+
+                </div>
+
+                <!-- /.col -->
+
+            </div>
+
+            <!-- /.row -->
+
+        </div><!-- /.container-fluid -->
+
+    </section>
+
+    <!-- /.content -->
+    <!-- /.content-wrapper -->
+    <!-- Control Sidebar -->
+
+    <aside class="control-sidebar control-sidebar-dark">
+
+        <!-- Control sidebar content goes here -->
+
+    </aside>
+
+    <!-- /.control-sidebar -->
+    <!-- ./wrapper -->
+    <!-- jQuery -->
+
+    <script src="../../plugins/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap 4 -->
+
+    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- AdminLTE App -->
+
+    <script src="../../dist/js/adminlte.min.js"></script>
+
+    <!-- AdminLTE for demo purposes -->
+
+    <script src="../../dist/js/demo.js"></script>
+
+    <script src="~/Login/js/main.js"></script>
+
+</body>
+
+</html>
+
+
+

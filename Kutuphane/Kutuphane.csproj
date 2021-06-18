@@ -646,6 +646,9 @@
     <Content Include="Views\Notifications\FetchNotification.cshtml" />
     <Content Include="Views\Notifications\NotificationContent.cshtml" />
     <Content Include="Views\Memberdashboard\Notifications.cshtml" />
+    <Content Include="Views\Memberdashboard\Partial1.cshtml" />
+    <Content Include="Views\Memberdashboard\Partial2.cshtml" />
+    <Content Include="Views\Messages\PartialMailSidebar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

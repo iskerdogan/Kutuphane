@@ -15,7 +15,7 @@ namespace Kutuphane.Controllers
         KutuphaneEntities kutuphaneEntities = new KutuphaneEntities();
         public ActionResult Index(int page=1)
         {
-            var result = kutuphaneEntities.Members.ToList().ToPagedList(page,10);
+            var result = kutuphaneEntities.Members.ToList().ToPagedList(page,3);
             return View(result);
         }
 

@@ -1,0 +1,39 @@
+﻿@using Kutuphane.Models.Entity
+@model List<Notifications>
+@foreach (Notifications result in Model)
+{
+
+
+    <div class="post">
+
+        <div class="user-block">
+
+            <img class="img-circle img-bordered-sm" src="https://img.icons8.com/bubbles/50/000000/appointment-reminders.png" alt="user image">
+
+            <span class="username">
+
+                <a href="#"><b>@result.Category</b></a>
+
+                <a href="#" class="float-right btn-tool"><i class="fas fa-times"></i></a>
+
+            </span>
+
+            <span class="description"><b>@result.Date.ToString()</b></span>
+
+        </div>
+
+        <br />
+        <!-- /.user-block -->
+
+        <p>
+            @result.NotificationContent
+        </p>
+
+    </div>
+
+    <hr class="my-4">
+}
+
+
+
+

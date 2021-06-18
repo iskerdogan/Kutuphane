@@ -1,0 +1,105 @@
+﻿@model Kutuphane.Models.Entity.Members
+
+@using (Html.BeginForm("HomeProfile", "Memberdashboard", FormMethod.Post))
+
+{
+
+    <form class="form-horizontal">
+
+        <div class="form-group row">
+
+            <label for="inputName" class="col-sm-2 col-form-label"><b>Ad</b></label>
+
+            <div class="col-sm-10">
+
+                @Html.TextBoxFor(p => p.Name, new { @class = "form-control" })
+
+            </div>
+
+        </div>
+
+        <div class="form-group row">
+
+            <label for="inputName" class="col-sm-2 col-form-label"><b>Soyad</b></label>
+
+            <div class="col-sm-10">
+
+                @Html.TextBoxFor(p => p.Surname, new { @class = "form-control" })
+
+            </div>
+
+        </div>
+        <div class="form-group row">
+
+            <label for="inputName" class="col-sm-2 col-form-label"><b>Telefon</b></label>
+
+            <div class="col-sm-10">
+
+                @Html.TextBoxFor(p => p.PhoneNumber, new { @class = "form-control", @type = "tel" })
+
+            </div>
+
+        </div>
+
+        <div class="form-group row">
+
+            <label for="inputName" class="col-sm-2 col-form-label"><b>Kullanıcı Adı</b></label>
+
+            <div class="col-sm-10">
+
+                @Html.TextBoxFor(p => p.UserName, new { @class = "form-control" })
+
+            </div>
+
+        </div>
+
+        <div class="form-group row">
+
+            <label for="inputName" class="col-sm-2 col-form-label"><b> Şifre </b></label>
+
+            <div class="col-sm-10">
+
+                @Html.TextBoxFor(p => p.Password, new { @class = "form-control" })
+
+            </div>
+
+        </div>
+
+        <div class="form-group row">
+
+            <label for="inputName" class="col-sm-2 col-form-label"><b>Fotoğraf Link</b></label>
+
+            <div class="col-sm-10">
+
+                @Html.TextBoxFor(p => p.Image, new { @class = "form-control" })
+                @Html.ValidationMessageFor(p => p.Image, "", new { @class = "text-danger" })
+
+            </div>
+
+        </div>
+
+        <div class="form-group row">
+
+            <label for="inputName" class="col-sm-2 col-form-label"><b>Okul</b></label>
+
+            <div class="col-sm-10">
+
+                @Html.TextBoxFor(p => p.School, new { @class = "form-control" })
+
+            </div>
+
+        </div>
+
+        <div class="form-group row">
+
+            <div class="offset-sm-2 col-sm-10">
+
+                <button type="submit" class="btn btn-danger">Güncelle</button>
+
+            </div>
+
+        </div>
+
+    </form>
+
+}

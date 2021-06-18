@@ -6,9 +6,7 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/Layout.cshtml";
 }
-
 <h2>Üyeler</h2>
-
 <table class="table table-bordered">
     <tr>
         <th>Id</th>
@@ -36,6 +34,9 @@
         </tr>
     }
 </table>
-@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
+<div>
+    @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page}))
+</div>
+
 
 <a href="~/Members/MembersAdd" class="btn btn-primary">Üye ekle</a>

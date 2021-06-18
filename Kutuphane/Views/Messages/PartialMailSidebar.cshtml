@@ -1,0 +1,55 @@
+﻿<div class="col-md-2">
+
+    <a href="/Messages/NewMessage/" class="btn btn-primary btn-block mb-3">Yeni Mesaj</a>
+
+    <div class="card">
+
+        <div class="card-header">
+
+            <h3 class="card-title" align="center">Menüler</h3>
+
+            <hr class="m-2" />
+
+            <ul class="nav nav-pills flex-column">
+
+                <li class="nav-item"><a class="nav-link" href="/Messages/Index/" data-toggle="tab" align="center">Gelen Kutusu</a></li>
+                <li class="nav-item"><a class="nav-link" href="/Messages/PostedMessage/" data-toggle="tab" align="center">Giden Kutusu</a></li>
+                <li class="nav-item"><a class="nav-link" href="" data-toggle="tab" align="center">Taslaklar</a></li>
+                <li class="nav-item"><a class="nav-link" href="" data-toggle="tab" align="center">Spam</a></li>
+                <li class="nav-item"><a class="nav-link" href="" data-toggle="tab" align="center">Çöp Kutusu</a></li>
+                <li class="nav-item"><a class="nav-link" href="" data-toggle="tab" align="center">Etiketler</a></li>
+                <li class="nav-item"><a class="nav-link" href="" data-toggle="tab" align="center">Önemli</a></li>
+                <li class="nav-item"><a class="nav-link" href="" data-toggle="tab" align="center">Tanıtımlar</a></li>
+                <li class="nav-item"><a class="nav-link" href="" data-toggle="tab" align="center">Sosyal Medya</a></li>
+
+            </ul>
+
+        </div>
+        <div class="card-body">
+
+            <div class="tab-content">
+
+                <div class="active tab-pane" id="activity">
+
+                    <!-- Post -->
+
+                    @Html.Partial("Partial1")
+
+                    <!--Post-->
+                </div>
+
+                <div class="tab-pane" id="settings">
+
+                    @Html.Action("Partial2", "Memberdashboard")
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</div>
