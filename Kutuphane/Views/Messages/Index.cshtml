@@ -52,7 +52,7 @@
 
         <div class="row">
 
-            @Html.Partial("PartialMailSidebar")
+            @Html.Action("PartialMailSidebar")
 
             <!-- /.col -->
 
@@ -63,6 +63,9 @@
                     <div class="card-header">
 
                         <div class="card-tools">
+
+                            <h2 style="text-align:center">Gelen Mesajlar</h2>
+                            <br />
 
                             <div class="input-group input-group-sm">
 
@@ -169,7 +172,7 @@
 
                                             <td class="mailbox-star"><a href="#"><i class="fas fa-star text-warning"></i></a></td>
 
-                                            <td class="mailbox-name"><a href="read-mail.html">@result.PostedByMember</a></td>
+                                            <td class="mailbox-name"><a href="/Messages/ReadMessages/@result.Id">@result.PostedByMember</a></td>
 
                                             <td class="mailbox-subject">
 

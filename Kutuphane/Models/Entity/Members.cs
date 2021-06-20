@@ -11,8 +11,7 @@ namespace Kutuphane.Models.Entity
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Members
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -28,8 +27,6 @@ namespace Kutuphane.Models.Entity
         public string Mail { get; set; }
         public string UserName { get; set; }
         public string Password { get; set; }
-
-        [Required(ErrorMessage ="Resim linki boþ olamaz!!")]
         public string Image { get; set; }
         public string PhoneNumber { get; set; }
         public string School { get; set; }

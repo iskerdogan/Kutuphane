@@ -14,14 +14,14 @@ namespace Kutuphane.Controllers
         public ActionResult Index()
         {
             var mail = (string)Session["Mail"].ToString();
-            var result = kutuphaneEntities.Messages.Where(p => p.GetedByMember == mail.ToString()).ToList();
+            var result = kutuphaneEntities.Messages.Where(p => p.GetedByMember == mail.ToString()).OrderByDescending(p => p.Id).ToList();
             return View(result);
         }
 
         public ActionResult PostedMessage()
         {
             var mail = (string)Session["Mail"].ToString();
-            var result = kutuphaneEntities.Messages.Where(p => p.PostedByMember == mail.ToString()).ToList();
+            var result = kutuphaneEntities.Messages.Where(p => p.PostedByMember == mail.ToString()).OrderByDescending(p => p.Id).ToList();
             return View(result);
         }
 
@@ -42,8 +42,19 @@ namespace Kutuphane.Controllers
             return RedirectToAction("PostedMessage");
         }
 
+        public ActionResult ReadMessages(int id)
+        {
+            var result = kutuphaneEntities.Messages.Where(p => p.Id == id).ToList();
+            return View(result);
+        }
+
         public PartialViewResult PartialMailSidebar()
         {
+            var mail = (string)Session["Mail"].ToString();
+            var getedByMessage = kutuphaneEntities.Messages.Where(p => p.GetedByMember == mail).Count();
+            ViewBag.getedByMessageCount = getedByMessage;
+            var postedByMessage = kutuphaneEntities.Messages.Where(p => p.PostedByMember == mail).Count();
+            ViewBag.postedByMessageCount = postedByMessage;
             return PartialView();
         }
 

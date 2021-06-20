@@ -1,6 +1,7 @@
 ﻿@using Kutuphane.Models.Entity
 @model List<Notifications>
-@foreach (Notifications result in Model)
+
+@foreach (Notifications result in Model.OrderByDescending(p => p.Date))
 {
 
 
@@ -18,7 +19,7 @@
 
             </span>
 
-            <span class="description"><b>@result.Date.ToString()</b></span>
+            <span class="description"><b>@Convert.ToDateTime(@result.Date).ToString("dd/MM/yyyy")</b></span>
 
         </div>
 

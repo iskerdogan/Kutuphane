@@ -49,15 +49,14 @@
 
     <section class="content">
 
-        <div class="container-fluid">
 
             <div class="row">
 
-                @Html.Partial("PartialMailSidebar")
+                @Html.Action("PartialMailSidebar")
 
                 <!-- /.col -->
 
-                <div class="col-md-9">
+                <div class="col-md-10">
 
                     <div class="card card-primary card-outline">
 
@@ -68,41 +67,42 @@
                         </div>
 
                         <!-- /.card-header -->
+                        <form class="form-group" method="post">
 
-                        <div class="card-body">
+                            <div class="card-body">
 
-                            <div class="form-group">
+                                <div class="form-group">
 
-                                <input class="form-control" placeholder="Kime:">
+                                    <input class="form-control" name="GetedByMember" placeholder="Kime:">
 
-                            </div>
+                                </div>
 
-                            <div class="form-group">
+                                <div class="form-group">
 
-                                <input class="form-control" placeholder="Konu:">
+                                    <input class="form-control" name="Subject" placeholder="Konu:">
 
-                            </div>
+                                </div>
 
-                            <div class="form-group">
+                                <div class="form-group">
 
-                                <textarea id="compose-textarea" class="form-control" style="height: 300px" placeholder="İçerik:"></textarea>
+                                    <textarea id="compose-textarea" name="MessageContent" class="form-control" style="height: 300px" placeholder="İçerik:"></textarea>
 
-                            </div>
-
-                        </div>
-
-                        <!-- /.card-body -->
-
-                        <div class="card-footer">
-
-                            <div class="float-right">
-
-                                <button type="submit" class="btn btn-primary"><i class="far fa-envelope"></i> Gönder</button>
+                                </div>
 
                             </div>
 
-                        </div>
+                            <!-- /.card-body -->
 
+                            <div class="card-footer">
+
+                                <div class="float-right">
+
+                                    <button type="submit" class="btn btn-primary"><i class="far fa-envelope"></i> Gönder</button>
+
+                                </div>
+
+                            </div>
+                        </form>
                         <!-- /.card-footer -->
 
                     </div>
@@ -117,7 +117,6 @@
 
             <!-- /.row -->
 
-        </div><!-- /.container-fluid -->
 
     </section>
 

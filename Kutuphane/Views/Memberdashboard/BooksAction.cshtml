@@ -3,23 +3,147 @@
 @{
     ViewBag.Title = "BooksAction";
     Layout = "~/Views/Shared/Membersdashboard.cshtml";
+    string memberReturn= " ";
+    string icon = " ";
+    string line = " ";
+    string btnColor = " ";
+    string bgColor = " ";
+    string arrowColor = " ";
+
 }
 
-<h2>BooksAction</h2>
+<!DOCTYPE html>
+<link href="~/memberDashboard/src/css/adminlte.css" rel="stylesheet" />
+<html>
 
-<table class="table table-bordered">
-    <tr>
-        <th>Ad</th>
-        <th>Alış Tarihi</th>
-        <th>Üye İade Tarihi</th>
-    </tr>
-    @foreach (Transactions result in Model)
-        {
-            <tr>
-                <td>@result.Books.Name</td>
-                <td>@Convert.ToDateTime(@result.PurchaseDate).ToString("dd/MM/yyyy")</td>
-                <td>@Convert.ToDateTime(@result.MemberReturnDate).ToString("dd/MM/yyyy")</td>
-            </tr>
-        }
+<body class="hold-transition sidebar-mini">
 
-</table>
+    <section class="content">
+
+        <div class="container-fluid">
+
+            <div class="row">
+
+
+
+                <!-- /.col -->
+
+                <div class="col-md-12">
+
+                    <div class="card">
+
+                        <div class="card-header p-2">
+
+                            <h2 style="text-align:center">Kitap Hareketlerim</h2>
+
+                        </div><!-- /.card-header -->
+
+                        <div class="card-body">
+
+
+
+                            <div class="tab-pane" id="timeline">
+
+                                <!-- The timeline -->
+
+                                <div class="timeline timeline-inverse">
+
+                                    <!-- timeline time label -->
+
+                                    @foreach (Transactions result in Model)
+
+                                    {
+                                        if (@Convert.ToDateTime(@result.MemberReturnDate).ToString("dd/MM/yyyy") == "01.01.0001")
+                                        {
+                                            memberReturn = "Teslim Edilmedi";
+                                            icon = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAAC2ElEQVRIie2US2gTURSGvzuPJAZssC1Su1BQUaRQLaI1phQRBLuwUGp8IGIV1KUIgohQ6kYQRHSjEQVxKYKPqrgRcVHEpQ98gBvx3bQ0jVToa+5xkWQy0yQ2U12JZzP3zrnn/+75Z+6F//Gvh5pL0fuOjnBNTTYFMKyzh5tuvp4MqmHNBVwTy55A6EGgXsU+AKeCagTueGhn2wqNfoEQyb+adJRe03jj2dsgOkaQxQJKi77kgQKETG2kJGATgcBDO+L7gc3enSAAtH/fvrEniFbVu/zctb7Otq13QL0LLT5AGMFhVcPtp+lq9Kru2Lat8wVoxlE8nrB4NG4yqlWBXisGZ6vVqwr8bVfbJmAPAALPp0yu/rS5OmbxfKJomoK9g12JLX8F/L6jI2xonQJUwVdLgYggIoRmeC6GXPyUjM/7Y3BsfrYXWOnVt0Wjtc6BlXg+NCBquT1tnvwj8LfdiSaBY76mBML5jrXWhL3/p+THSo4PdrWtnhNY+jCMaS4jhLxQgBA5qNY6b7UqQnPrLFFyWfoq61dMpN8kDoEk3KPqsdMWD1gxw2r32Zp+mTgYCJxOrmtA5LTnjPqEQ4DjODmry0ELU63ODHUmGqsGa7EuCCzw3Ew+4aiSHNhxiBr+nH+txByDc+UYJTdXOhnfqlEPywsVxorhacFQUGuq8lb75qqz4e7AvYrgr9vWRo1I+BXC0t9Bf2jh+sgUIsK+BSFipvoNFAQ+miG7aeHNJ2OFlM9qFY6cqgwt/rm3M5P0Z8bpz4xzZ3RiNigIi52JqV5v2gUPdrc2K+SIr9AHLRY1R0ws0ZiiaYqYpVaLp1zy9aijXzrbWwrLrHxODSrzCmCX7r70G7ZELW4tiwEwT/nOr7/chQKCZaBTAhtc7z4l47W2qGE893ElqC/K5CpA3beTmrolDwYy7na/d8cPgGqtCJkZusLYDaNER4Rni+4PXJtF+X/8I/ELqeY+pyRuHOcAAAAASUVORK5CYII=";
+                                            line = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAABmJLR0QA/wD/AP+gvaeTAAAARklEQVRYhe3OQQ2AMBAAwT1cYKUBB8hFQmsFGbT/pl9yCdlRMCBJkiTpxwLguY4WULIzk7rf9dwAAt7szULPDkiSJEn63AASrwcCMMZqagAAAABJRU5ErkJggg==";
+                                            btnColor = "btn btn-danger";
+                                            bgColor = "bg-danger";
+                                            arrowColor = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAAEVElEQVRIia2WW2xUVRSGv3XOmelMm9LOTKFDKaJQmhhj1GAJJaiNQFCgKgjxwUQNoDEK8gKCiKltRCSCMUYTYlQeJMZQEQNWQBJjFFsLgQdj1LagwbYDNnSmXMq0cy7bB+hcyowznfq/rZV/729l733OWsIYFKqvKxPMGpQEUaoSAJEeRF2wDfNE5YET/bnuJdlhswo1vGuUYjkwD9AzWG3guCjZ72jXPq44dOpaXmBVV2ecL7JWidAAVGQrcHS9ItJQ7gnukeZmO2dw96Jav+HS9wHzxwhMkVIcM+GJaS3HI1nBfUvvn2mjvgFVNR5okjp1zV4y6WDbmeSklhx0L6r1WzgtuUKLVjzJxA8/Z8Jz68EwMtmqbUc/GqqvK0sLVnV1huHS9wnMzAWqV1RS/PTz6JOnUFi/At+WbYi7IJN9Oo71mVq5Mv4w4+DzxeZqxnCn6soVnMGr8bigZi6+xl1IYVFavwgL/xkKPROPAbpX1nqNqN4JVOYKBnBV347v9bfRikviOfNsJ5GGDTiXbnpPACEl0ZkVh05d0wBcQ/qzY4UCmJ2/E968Did8MVHMjGr8O95Hn1iebkmFKM8quHHUSrFirNARWX//Rf/LL2Cf743njCm3ENi5G2Pa9DQr5HEA6Vk2O6Cb7gtAxmeZizR/AH/jOxi3JmDOlctEGjdidvyWbLWVGEFNt1yzxwsFcML9hF9Zi/nHr4liiifgf+Nd3Hffm2zVNWXVGuLIZJX0G/HOfxjvgsWIx5tXAeLxjIq9+F57i4E3X2X4VPv1IkWqDIWaMvID04onULJuE+iZ+kB+EncBJeu30PfUo9djxynVlIgaMSjHRjnO/wqN723GUmJDU4RGjloNDjKwfSveBxaAnt+1ayWluO+8JyXnDF5lYGdjoghNGzAcRUiS7nj4ZCvDJ1vzg/rL8DftSoUOhIk0bMD8syvhQ3VpTkHsJGDlRUqSHqwgsOODlG/X7rtAePPaFChgWUasTbsxrvw0HqhrRjWBnbvRg4l5weo5R3jTi1i93aPc6ofKAyf6NQBRsj9fqPuOu/Bvew+txBfPmWc6CG9ei32xL80K+RJu/DLNQusjYHRpWVVQU4uvaRdSlOhIsV9OE97yEs6lgZuR0KskuicOntrcFhWRprFANX+A0k1NKT14uP04kcaNqGj6OU+JbB0ZAuP9uNwT3KMUx3IFi8uNuN3xOPrdESLbt6JisQwLOBL0BD9NhEk6t2Sezy38DFTnAvc++BDehUsZPt3O4Bd7QalM1o4hw5hz21ffx8//5mHvkdoq29FbcoXnoA7NdpaUH249m5zURrsmHWw747bNGuDr8RIF+XbIMOaMhqYFAwQOt18Oeic/JqLWCPSm82RRjyhWl3uDi5OPN7WoLArVzyoU5VmFyHIU95G5d1sIP6LYb3ntT6Y2t0X/a9+s4GT1LJsdMEz3XEekSsAHoCCiobrMmN069WhbONe9/gW7yIA7T5STiAAAAABJRU5ErkJggg==";
+                                        }
+                                        else
+                                        {
+                                            memberReturn = @Convert.ToDateTime(@result.MemberReturnDate).ToString("dd/MM/yyyy");
+                                            icon = "https://img.icons8.com/fluent/30/000000/pass.png";
+                                            line = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAABmJLR0QA/wD/AP+gvaeTAAAASElEQVRYhe3OsQ1AUBhG0fsspFFJDPU2MRSlxkA+tajlT+SeCQ5IkiRJ+rEGMB59T5irM0/ZzmldBoAkV3XnraV6IEmSJOlzN4mLDP/0SXZXAAAAAElFTkSuQmCC";
+                                            btnColor = "btn btn-success";
+                                            bgColor = "bg-success";
+                                            arrowColor = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAAEaklEQVRIia2XW2yTZRjHf+/Xry1r5wbrMAMrILbbADEChQ0ihIheKPGERuKN4sZJZiQLN1yYQLgyUTIFFnEiIyHxQoKJxxhJIAEZICwqh7nuhEg3F2HsxDp6+Pp4MfbxlXWu3fzfPf8+7/t7+x6e9/0UGWjRhW35UTEWo6kCTcQLkFAqREI6Y4nYL40l1V3p9qXGhm10xchej5I1CE8CtlFSDRQ/K5GjOuHP6wM14XGBV57YqXfl9JYpkR2gpo81wGRJB7CjqK299shrR4y0wfPqKvNsdr5EsSoz4P2dy7GEY9LaS4+/3z0m+Ilf3/WLYftBwDcRqEVNhmL1lUVVLaOC59VV5tkcnAX86fRYVvAUa/KXcqq3gd2hb4hLylkFaLOjldQHdt8cNsyNsvLETj2SFfkaRSAd6AznVD72lZOru5jvnskcl5fjPZcwJJEqfYqQWLDi6Ye/aDjSIADa8C/d2X3lmaxpnxGm3xg04xW5c/nEvxG3bVLKfEE9E3zEu244VgBL6yqzBhw0Ad50wQCPuWdQ7dvAZN1ten+EQ2xpruFW/HYqfIedsL8+UBPWAAYcakOmUIDLA39R1lTNjVif6c1xeakteodpjikpWqjpUXGXgTnV8mqm0GG1DnbyZnAP1yP3itasSQ9yuHgrvqyCFGxeAVDF5yo8DpujE9DHCwfIt+ew378Jf9Y00+uNh6lo+YxLA9esqYYdrUCza/YlE4UC3Iz1URbcx+8Df5peru6ipnAzpTmF1lRbTCWW6hpME4v7gmcxL3qW4LI5xzWALM2RFLs0J3seLaeytZbTfY0ASAKfjuIh6wh3zlyLTWn8n3JqdnbNep1VF3cMGYrJWgJl/mFDEhikLAATVkziSbGuiXSIGqqct407bGs9xLN5C9HVaLfffytPdxN4ILnM9xuDbL96+J4h9OiiqQ4si3yyt4GTvQ3jgk69u7Ot6or183ZLDcFwu+lpmmrWo/HoeYfNEWeCO9vr9PCpfzNep8f0/o52s6l5P9fu3LCmxiPxyBmtsaS6C8XpiUDnuLwcLt6aBL165x/WBffeDwU42VhS3aUBKJGj44UuzJ7NgcIt5OnZptcQDvFWcB+d0Z4R+aLkK7hbMl1RdQC4nil0ee5c9vs3kW25kc73t7C+qZrulJcE7Q4J15rgM8uqBkF2ZQLNt+fw4ew3cGp20zvRc5mKlhoGjEjKNqLUe8OPQLNSFLW11yrkWLpgp6bjsEC/7brAtrZDRBLx1A2EH4tbr5tnKunpM//i9ikqGjkLFI5omELPewK8nF/C6d5GDnYeR6znMllBzSalvy34yFz0EY+9efWVPpvwfbrwNBRMoK++HPig1WqOKMpXFlW1ZMXji4HvJkoU+EmzSen90JRggHOle/uK2kIvIawH2lPljKGQEikvbgs9Z51eq9L6hImKu0wp1gDLGb3CxYFTouRodkQdHDopo2tMsFXF5yo8Dt2xTBL4UGroUSXSrWmqOR6RuivLqm6l29e/XCmYvxWBloIAAAAASUVORK5CYII=";
+                                        }
+
+                                    <div class="time-label">
+
+                                        <a class="btn btn-warning">
+
+                                            <span class="bg-warning">
+
+                                                @Convert.ToDateTime(@result.PurchaseDate).ToString("dd/MM/yyyy")
+
+                                            </span>
+
+                                        </a>
+                                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAABmJLR0QA/wD/AP+gvaeTAAAARUlEQVRYhe3OwQmAQAwAwY0NaD2i1XsWpAVcfB/4lYDsVDAgSZIk6ccC4DqWk8i1OjPKNm/3PgEQvRdv3mR1QJIkSdLnHn9GCgD+w8sbAAAAAElFTkSuQmCC">
+                                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAADc0lEQVRIibXW22+TdRzH8dfztB0bILqChIEYxQ5DPCRyloBoPETAC4MEoxceAP8Gb0xIvPLWe3SJ3pFgogEynJEElQmCGpMlsG4KESZoGDB0B9enjxdt13asrOviJ3nSfD/5/n7v3/HbX2AGis9YJLROaIm8+0Dokrwrxp0ONrhWb19BHbC5QvsEdmIzEjVSI3wrdkjeR8Faww2B4+OSWu0R24+l0w1wkgawX1ZHsFtUNzjukTbuoNizMwROVpeEV4PHXZ8WHP+kHUeRmSW0pF55O4I1+irNsAraI40jdUMXv8uqPpZ9SJCqlbVS6Fh8xqJKc2LGxT3trHt557SzqrccDx3mwm7yI7VadMnaVtrz8oxb7Z3RnkaDRDfK8YKXWNFJYkGtFs/LeKsUBBCf1KJFL8W7Wa/mrmfFUZILy97Ij/RvI/fnVC0GRNqDtYYLM272zoyhMHyavq2MD5S9ltW0n6Dp/qlaLJW0h/JS75oxtKTRHrKbGesve3Mepr2b5kdvz4+9AkF8ykJNriDZMBxSbTx0jObHyl40SP92hk9VZkYiS0Ip62cNhfE/yG7ln+6yl0iT+Yq7nqvMTEh5MinUJq6w02+SfptwfmMDCOdNiufz4Bdc2MlQZ8GLZZLylk3c5kSa5QcIZr8A1fAWlnfQ01Zy7gmFlfONit//oHisKkwq/JMUuTf5bRetr92pBN5ZyXuZ/3S1F93g4uuVzo2kyEBVxR46XPgaUWpp4WRXKneV/hcZ+bnSzSbl/KBJzmxPdtMKMl2F35L+vUj/C4z1VmbmjOkOi8+V72YFbVnNyu5q6Og5slsmQ4mdCDa4FhaDQw1D520h8zXJxWVv+Cx9TzH+++35gc8olcxRB8SmyJpGC3YU9jRxd9n7+zh9z5D7a6oWl0U6JsDBJiMC788ImmrjgYOFO1rSzc/5dTv5W7VavVd6BJbPc1YHuuoGB82EzeV48BMu7CI/WiNfp6xPy2GF4l+0inyPlXXB02+Q3sutTq5+QFXtrdJ5bAyeMPFyuP2xd1ZG6Ejd8Ol1XmRHsFZ/pRlOzgrW6DNmHRqsIlX6EhsnQ6cEQ7DRkKyXxfbhcgPASwJ7ZW2vXN4qxnQ9xGfMlbRHbCe2qF3hcvgGh4z4ONik5nOzLnDVIE5ZqNkmsQxai/Z1ZKWcDB4xWG9f/wH3Gv8zPW7KRAAAAABJRU5ErkJggg==">
+                                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAABmJLR0QA/wD/AP+gvaeTAAAARUlEQVRYhe3OwQmAQAwAwY0NaD2i1XsWpAVcfB/4lYDsVDAgSZIk6ccC4DqWk8i1OjPKNm/3PgEQvRdv3mR1QJIkSdLnHn9GCgD+w8sbAAAAAElFTkSuQmCC">
+                                        <a class="@btnColor">
+
+                                            <span class="@bgColor">
+
+                                                @memberReturn
+
+                                            </span>
+
+                                        </a>
+                                        <img src="@line">
+                                        <img src="@arrowColor">
+                                        <img src="@line">
+                                        <img src="@icon" />
+                                    </div>
+
+                                        <!-- /.timeline-label -->
+
+                                        <!-- timeline item -->
+
+                                        <div>
+
+                                            @*<i class="fas fa-comment bg-primary"></i>*@
+
+                                            <div class="timeline-item">
+
+                                                <div class="timeline-body">
+
+                                                    @result.Books.Name - @result.Books.Writers.Name @result.Books.Writers.Surname
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                    }
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div><!-- /.card-body -->
+
+                </div>
+
+                <!-- /.nav-tabs-custom -->
+
+            </div>
+
+            <!-- /.col -->
+
+        </div>
+
+    </section>
+
+</body>
+
+</html>
+

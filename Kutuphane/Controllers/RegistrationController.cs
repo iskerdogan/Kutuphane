@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace Kutuphane.Controllers
 {
+    [AllowAnonymous]
     public class RegistrationController : Controller
     {
         // GET: Registration

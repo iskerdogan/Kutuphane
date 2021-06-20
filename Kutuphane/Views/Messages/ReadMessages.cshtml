@@ -1,0 +1,86 @@
+﻿@using Kutuphane.Models.Entity
+@model List<Messages>
+@{
+    ViewBag.Title = "ReadMessages";
+    Layout = "~/Views/Shared/Membersdashboard.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AdminLTE 3 | Read Mail</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+<body class="hold-transition sidebar-mini">
+    <!-- Content Wrapper. Contains page content -->
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            @Html.Action("PartialMailSidebar")
+            <!-- /.col -->
+            <div class="col-md-10">
+                <div class="card card-primary card-outline">
+                    <div class="card-header">
+                        <h3 class="card-title" style="text-align:center">Mesaj</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    @foreach (Messages result in Model)
+                    {
+                        <div class="card-body p-3">
+                            <div class="mailbox-read-info">
+                                <h5> @result.Subject </h5>
+                                <h6>Gönderen:< @result.PostedByMember ></h6>
+                                <h6>
+                                    Alıcı:< @result.GetedByMember >
+                                    <span class="mailbox-read-time float-right">@Convert.ToDateTime(@result.Date).ToString("dd/MM/yyyy")</span>
+                                </h6>
+                            </div>
+                            <!-- /.mailbox-read-info -->
+                            <br />
+                            <!-- /.mailbox-controls -->
+                            <div class="mailbox-read-message">
+                                <p>
+                                    @result.MessageContent
+                                </p>
+                            </div>
+                            <!-- /.mailbox-read-message -->
+                        </div>
+                        <!-- /.card-body -->
+                    }
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </section>
+
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+    <!-- ./wrapper -->
+    <!-- jQuery -->
+    <script src="../../plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="../../dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="../../dist/js/demo.js"></script>
+</body>
+</html>
+
+

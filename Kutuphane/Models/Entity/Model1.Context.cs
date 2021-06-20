@@ -38,5 +38,6 @@ namespace Kutuphane.Models.Entity
         public virtual DbSet<Contacts> Contacts { get; set; }
         public virtual DbSet<Messages> Messages { get; set; }
         public virtual DbSet<Notifications> Notifications { get; set; }
+        public virtual DbSet<Admins> Admins { get; set; }
     }
 }

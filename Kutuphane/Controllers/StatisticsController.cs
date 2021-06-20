@@ -24,29 +24,8 @@ namespace Kutuphane.Controllers
             ViewBag.Money = result4;
             return View();
         }
-        public ActionResult WeatherForecast()
-        {
-            return View();
-        }
-        public ActionResult WeatherForecast2()
-        {
-            return View();
-        }
-        public ActionResult Gallery()
-        {
-            return View();
-        }
 
-        [HttpPost]
-        public ActionResult ImageUpload(HttpPostedFileBase image)
-        {
-            if (image.ContentLength>0)
-            {
-                string imagePath = Path.Combine(Server.MapPath("~/dashboard/resimler/"), Path.GetFileName(image.FileName));
-                image.SaveAs(imagePath);
-            }
-            return RedirectToAction("Gallery");
-        }
+
         
     }
 }

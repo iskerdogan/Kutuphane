@@ -59,13 +59,7 @@ namespace Kutuphane.Controllers
         {
             var mail = (string)Session["Mail"];
             var id = kutuphaneEntities.Members.Where(p => p.Mail == mail.ToString()).Select(p => p.Id).FirstOrDefault();
-            var result = kutuphaneEntities.Transactions.Where(p => p.MemberId == id).ToList();
-            return View(result);
-        }
-
-        public ActionResult Notifications()
-        {
-            var result = kutuphaneEntities.Notifications.ToList();
+            var result = kutuphaneEntities.Transactions.Where(p => p.MemberId == id).OrderByDescending(p => p.Id).ToList();
             return View(result);
         }
 
