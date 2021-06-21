@@ -1,0 +1,31 @@
+﻿@model Kutuphane.Models.Entity.Admins
+@{
+    ViewBag.Title = "FetchAdmin";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+@using (Html.BeginForm("AdminUpdate", "Settings", FormMethod.Post))
+{
+    <div style="margin-top:15px"></div>
+    <div class="form-group">
+        @Html.LabelFor(p => p.Id)
+        @Html.TextBoxFor(p => p.Id, new { @class = "form-control", @readonly= "readonly" })
+        <br />
+        <label>Admin Mail</label>
+        @Html.TextBoxFor(p => p.Mail, new { @class = "form-control" })
+        <br />
+        <label>Admin Şifre</label>
+        @Html.TextBoxFor(p => p.Password, new { @class = "form-control" })
+        <br />
+        <label>Admin Yetki</label>
+        @Html.TextBoxFor(p => p.Authorize, new { @class = "form-control" })
+        <br />
+    </div>
+    <div>
+        <button class="btn btn-success">Güncelle</button>
+    </div>
+}
+
+
+
+

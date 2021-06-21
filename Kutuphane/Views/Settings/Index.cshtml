@@ -1,0 +1,54 @@
+﻿@using Kutuphane.Models.Entity
+@model List<Admins>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Settings</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Admin Mail</th>
+        <th>Admin Yetki</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (Admins result in Model)
+    {
+        <tr>
+            <td>@result.Id</td>
+            <td>@result.Mail</td>
+            <td>@result.Authorize</td>
+            <td><a href="~/Settings/AdminDelete/@result.Id" class="btn btn-danger">Sil</a></td>
+            <td><a href="~/Settings/FetchAdmin/@result.Id" class="btn btn-info">Güncelle</a></td>
+        </tr>
+    }
+</table>
+<button class="btn btn-primary" data-toggle="modal" data-target="#Modal1">Admin ekle</button>
+<div class="modal" id="Modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Admin Ekleme Paneli</h2>
+            </div>
+            <form action="/Settings/NewAdmin/" method="post">
+                <div class="modal-body">
+                    <label><b>Admin Mail</b></label>
+                    <input type="text" name="Mail" class="form-control" />
+                    <br />
+                    <label><b>Admin Şifre</b></label>
+                    <input type="password" name="Password" class="form-control" />
+                    <br />
+                    <label><b>Admin Yetki</b></label>
+                    <input type="text" name="Authorize" class="form-control" />
+                    <br />
+                    <button class="btn btn-success">Kaydet</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+

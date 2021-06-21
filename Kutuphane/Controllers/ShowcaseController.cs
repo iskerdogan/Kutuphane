@@ -5,6 +5,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Kutuphane.Models.Classes;
+using PagedList;
+using PagedList.Mvc;
 
 namespace Kutuphane.Controllers
 {
@@ -13,29 +15,28 @@ namespace Kutuphane.Controllers
     {
         // GET: Showcase
         KutuphaneEntities kutuphaneEntities = new KutuphaneEntities();
-
-
-        [HttpGet]
         public ActionResult Index()
         {
-            Class1 class1 = new Class1();
-            class1.TableBook = kutuphaneEntities.Books.ToList();
-            class1.TableAbout = kutuphaneEntities.About.ToList();
-            var result = kutuphaneEntities.Members.Count();
-            ViewBag.MembersCount = result;
-            var result2 = kutuphaneEntities.Books.Count();
-            ViewBag.BooksCount = result2;
-            var result3 = kutuphaneEntities.Staff.Count();
-            ViewBag.StaffCount = result3;
-            return View(class1);
+            var result = kutuphaneEntities.Books.ToList();
+            var membersCount = kutuphaneEntities.Members.Count();
+            ViewBag.MembersCount = membersCount;
+            var bookscount = kutuphaneEntities.Books.Count();
+            ViewBag.BooksCount = bookscount;
+            var staffcount = kutuphaneEntities.Staff.Count();
+            ViewBag.StaffCount = staffcount;
+            return View(result);
         }
 
-        [HttpPost]
-        public ActionResult Index(Contacts contacts)
+        public ActionResult Books(int page = 1)
         {
-            kutuphaneEntities.Contacts.Add(contacts);
-            kutuphaneEntities.SaveChanges();
-            return View("Index");
+            var result = kutuphaneEntities.Books.ToList().ToPagedList(page, 6);
+            var membersCount = kutuphaneEntities.Members.Count();
+            ViewBag.MembersCount = membersCount;
+            var bookscount = kutuphaneEntities.Books.Count();
+            ViewBag.BooksCount = bookscount;
+            var staffcount = kutuphaneEntities.Staff.Count();
+            ViewBag.StaffCount = staffcount;
+            return View(result);
         } 
     }
 }

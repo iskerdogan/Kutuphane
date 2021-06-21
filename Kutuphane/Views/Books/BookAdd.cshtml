@@ -12,7 +12,7 @@
     </div>
     <div style="margin-top:15px">
         <label>Kategori</label>
-        @Html.DropDownListFor(p => p.Categories.Id,(List<SelectListItem>)ViewBag.result, new { @class = "form-control" })
+        @Html.DropDownListFor(p => p.Categories.Id, (List<SelectListItem>)ViewBag.result, new { @class = "form-control" })
     </div>
     <div style="margin-top:15px">
         <label>Yazar</label>
@@ -29,6 +29,10 @@
     <div style="margin-top:15px">
         <label>Sayfa sayısı</label>
         @Html.TextBoxFor(p => p.NumberOfPages, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Kitap Fotoğraf Linki</label>
+        @Html.TextBoxFor(p => p.Image, new { @class = "form-control" })
     </div>
     <div style="margin-top:15px">
         <button class="btn btn-success">Ekle</button>

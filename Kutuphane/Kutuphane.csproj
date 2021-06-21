@@ -148,6 +148,7 @@
     <Compile Include="Controllers\MessagesController.cs" />
     <Compile Include="Controllers\NotificationsController.cs" />
     <Compile Include="Controllers\RegistrationController.cs" />
+    <Compile Include="Controllers\SettingsController.cs" />
     <Compile Include="Controllers\ShowcaseController.cs" />
     <Compile Include="Controllers\StaffController.cs" />
     <Compile Include="Controllers\StatisticsController.cs" />
@@ -277,6 +278,8 @@
     <Content Include="Login\fonts\font-awesome-4.7.0\HELP-US-OUT.txt" />
     <Content Include="Login\fonts\montserrat\OFL.txt" />
     <Content Include="Login\images\831-8314321_get-an-overview-of-your-team-activities-with.png" />
+    <Content Include="Login\images\icons8-login-48.png" />
+    <Content Include="showcase\assets\img\icons8-library-20.png" />
     <Content Include="Login\images\icons\favicon.ico" />
     <Content Include="Login\images\img-01.png" />
     <Content Include="Login\images\Library.png" />
@@ -302,17 +305,6 @@
     <Content Include="Login\vendor\select2\select2.min.css" />
     <Content Include="Login\vendor\select2\select2.min.js" />
     <Content Include="Login\vendor\tilt\tilt.jquery.min.js" />
-    <Content Include="memberDashboard\gulpfile.js" />
-    <Content Include="memberDashboard\src\css\adminlte.css" />
-    <Content Include="memberDashboard\src\css\main.css" />
-    <Content Include="memberDashboard\src\css\sidebar-themes.css" />
-    <Content Include="memberDashboard\src\img\bg1.jpg" />
-    <Content Include="memberDashboard\src\img\bg2.jpg" />
-    <Content Include="memberDashboard\src\img\bg3.jpg" />
-    <Content Include="memberDashboard\src\img\bg4.jpg" />
-    <Content Include="memberDashboard\src\img\favicon.png" />
-    <Content Include="memberDashboard\src\img\user.jpg" />
-    <Content Include="memberDashboard\src\js\main.js" />
     <Content Include="Models\Entity\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Model1.Context.cs</LastGenOutput>
@@ -407,19 +399,6 @@
     <Content Include="Login\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
     <Content Include="Login\vendor\bootstrap\css\bootstrap.css.map" />
     <Content Include="Login\vendor\bootstrap\css\bootstrap.min.css.map" />
-    <Content Include="memberDashboard\package-lock.json" />
-    <Content Include="memberDashboard\package.json" />
-    <Content Include="memberDashboard\src\sass\main.scss" />
-    <Content Include="memberDashboard\src\sass\sidebar-themes.scss" />
-    <Content Include="memberDashboard\src\sass\_animation.scss" />
-    <Content Include="memberDashboard\src\sass\_mixin.scss" />
-    <Content Include="memberDashboard\src\sass\_sidebar-brand.scss" />
-    <Content Include="memberDashboard\src\sass\_sidebar-footer.scss" />
-    <Content Include="memberDashboard\src\sass\_sidebar-header.scss" />
-    <Content Include="memberDashboard\src\sass\_sidebar-menu.scss" />
-    <Content Include="memberDashboard\src\sass\_sidebar-search.scss" />
-    <Content Include="memberDashboard\src\sass\_sidebar-wrapper.scss" />
-    <Content Include="memberDashboard\src\sass\_variables.scss" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -486,9 +465,7 @@
     <Content Include="showcase\assets\css\soft-design-system.css" />
     <Content Include="showcase\assets\css\soft-design-system.min.css" />
     <Content Include="showcase\assets\fonts\nucleo-icons.svg" />
-    <Content Include="showcase\assets\img\apple-icon.png" />
     <Content Include="showcase\assets\img\down-arrow-dark.svg" />
-    <Content Include="showcase\assets\img\favicon.png" />
     <Content Include="showcase\assets\img\logos\gray-logos\logo-apple.svg" />
     <Content Include="showcase\assets\img\logos\gray-logos\logo-behance.svg" />
     <Content Include="showcase\assets\img\logos\gray-logos\logo-coinbase.svg" />
@@ -615,7 +592,6 @@
     <Content Include="showcaseee\vendor\fontawesome-free\webfonts\fa-solid-900.woff2" />
     <Content Include="showcaseee\vendor\jquery\jquery.min.map" />
     <Content Include="showcaseee\vendor\jquery\jquery.slim.min.map" />
-    <Content Include="Views\Showcase\Index.cshtml" />
     <Content Include="Views\Statistics\Index.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Registration\Register.cshtml" />
@@ -785,6 +761,11 @@
     <Content Include="showcase\assets\scss\soft-design-system\_typography.scss" />
     <Content Include="showcase\assets\scss\soft-design-system\_utilities.scss" />
     <Content Include="showcase\assets\scss\soft-design-system\_variables.scss" />
+    <Content Include="Views\Shared\ShowcaseLayout.cshtml" />
+    <Content Include="Views\Showcase\Index.cshtml" />
+    <Content Include="Views\Showcase\Books.cshtml" />
+    <Content Include="Views\Settings\Index.cshtml" />
+    <Content Include="Views\Settings\FetchAdmin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

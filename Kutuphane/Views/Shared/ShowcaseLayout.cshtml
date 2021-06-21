@@ -1,0 +1,261 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="tr" itemscope itemtype="http://schema.org/WebPage">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icons8-library-20" sizes="75x75" href="~/showcase/assets/img/icons8-library-20.png">
+    <link rel="icon" type="image/png" href="~/showcase/assets/img/icons8-library-20.png">
+    <title>
+        Kütüphane
+    </title>
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+    <!-- Nucleo Icons -->
+    <link href="~/showcase/assets/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="~/showcase/assets/css/nucleo-svg.css" rel="stylesheet" />
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <!-- CSS Files -->
+    <link id="pagestyle" href="~/showcase/assets/css/soft-design-system.css?v=1.0.4" rel="stylesheet" />
+    <!--card-->
+    <link href="~/showcase/assets/css/rotating-card.css" rel="stylesheet" />
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+
+</head>
+
+<body class="presentation-page">
+    <!-- Navbar -->
+    <div class="container position-sticky z-index-sticky top-0">
+        <div class="row">
+            <div class="col-12">
+                <nav class="navbar navbar-expand-lg  blur blur-rounded top-0 z-index-fixed shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
+                    <div class="container-fluid">
+                        <a class="navbar-brand font-weight-bolder ms-sm-3" href="/Showcase/Index/" rel="tooltip" title="Kütüphanemiz." data-placement="bottom">
+                            Kütüphane
+                        </a>
+                        <div class="collapse navbar-collapse pt-3 pb-2 py-lg-0 w-100" id="navigation">
+                            <ul class="navbar-nav navbar-nav-hover ms-lg-12 ps-lg-5 w-100">
+                                @*<li class="nav-item dropdown dropdown-hover mx-9">
+                                        <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" id="dropdownMenuBlocks" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Kitaplar
+                                            <img src="~/showcase/assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-1">
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-menu-animation dropdown-lg dropdown-lg-responsive p-3 border-radius-lg mt-0 mt-lg-3" aria-labelledby="dropdownMenuBlocks">
+                                            <div class="d-none d-lg-block">
+                                                <li class="nav-item dropdown dropdown-hover dropdown-subitem">
+                                                    <a class="dropdown-item py-2 ps-3 border-radius-md" href="#NewBooks">
+                                                        <div class="d-flex">
+                                                            <div class="icon h-10 me-3 d-flex mt-1">
+                                                                <i class="ni ni-single-copy-04 text-gradient text-info"></i>
+                                                            </div>
+                                                            <div class="w-100 d-flex align-items-center justify-content-between">
+                                                                <div>
+                                                                    <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">Yeni Kitaplar</h6>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                            </div>
+
+                                            <div class="d-none d-lg-block">
+                                                <li class="nav-item dropdown dropdown-hover dropdown-subitem">
+                                                    <a class="dropdown-item py-2 ps-3 border-radius-md" href="#Books">
+                                                        <div class="d-flex">
+                                                            <div class="icon h-10 me-3 d-flex mt-1">
+                                                                <i class="ni ni-single-copy-04 text-gradient text-info"></i>
+                                                            </div>
+                                                            <div class="w-100 d-flex align-items-center justify-content-between">
+                                                                <div>
+                                                                    <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">Tüm Kitaplar</h6>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+
+                                            </div>
+                                        </ul>
+                                    </li>*@
+                                <li class="nav-item my-auto ms-3 ms-4">
+                                    <a href="/Showcase/Index/" class="btn btn-sm  bg-gradient-warning  btn-round mb-0 me-1 mt-2 mt-md-0">Yeni Eklenen</a>
+                                </li>
+                                <li class="nav-item my-auto ms-3 ms-5">
+                                    <a href="/Showcase/Books/" class="btn btn-sm  btn-info  btn-round mb-0 me-1 mt-2 mt-md-0">Tüm kitaplar</a>
+                                </li>
+                                <li class="nav-item my-auto ms-3 ms-auto">
+                                    <a href="/Login/Login" class="btn btn-sm  bg-gradient-info  btn-round mb-0 me-1 mt-2 mt-md-0">Giriş</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <!-- End Navbar -->
+            </div>
+        </div>
+    </div>
+    <header class="header-2">
+        <div class="page-header section-height-75 relative" style="background-image: url('/Error404/img/library.jpg') ">
+            <img src="" />
+            <img src="" />
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7 text-center mx-auto">
+                        <h1 class="text-white pt-3 mt-n5">Kütüphanemize Hoşgeldiniz</h1>
+                        <p class="lead text-white mt-3">
+                            "Dünyayı yöneten kalem, mürekkep ve kâgıttır."
+                            <br />
+                            Jonathan Swift
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="position-absolute w-100 z-index-1 bottom-0">
+                <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 40" preserveAspectRatio="none" shape-rendering="auto">
+                    <defs>
+                        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+                    </defs>
+                    <g class="moving-waves">
+                        <use xlink:href="#gentle-wave" x="48" y="-1" fill="rgba(255,255,255,0.40" />
+                        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.35)" />
+                        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.25)" />
+                        <use xlink:href="#gentle-wave" x="48" y="8" fill="rgba(255,255,255,0.20)" />
+                        <use xlink:href="#gentle-wave" x="48" y="13" fill="rgba(255,255,255,0.15)" />
+                        <use xlink:href="#gentle-wave" x="48" y="16" fill="rgba(255,255,255,0.95" />
+                    </g>
+                </svg>
+            </div>
+        </div>
+    </header>
+    <section class="pt-3 pb-4" id="count-stats">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9 z-index-2 border-radius-xl mt-n10 mx-auto py-3 blur shadow-blur">
+                    <div class="row">
+                        <div class="col-md-4 position-relative">
+                            <div class="p-3 text-center">
+                                <h1 class="text-gradient text-info"><span id="state1" countTo="@ViewBag.MembersCount">0</span></h1>
+                                <h5 class="mt-3">Toplam Üye</h5>
+                            </div>
+                            <hr class="vertical dark">
+                        </div>
+                        <div class="col-md-4 position-relative">
+                            <div class="p-3 text-center">
+                                <h1 class="text-gradient text-info"> <span id="state2" countTo="@ViewBag.BooksCount">0</span></h1>
+                                <h5 class="mt-3">Toplam Kitap</h5>
+                            </div>
+                            <hr class="vertical dark">
+                        </div>
+                        <div class="col-md-4">
+                            <div class="p-3 text-center">
+                                <h1 class="text-gradient text-info" id="state3" countTo="@ViewBag.StaffCount">0</h1>
+                                <h5 class="mt-3">Personel Sayımız</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="my-5 py-5">
+        @RenderBody()
+    </section>
+
+    <footer class="footer pt-5 mt-5">
+        <hr class="horizontal dark mb-5">
+        <div class="container">
+            <div class=" row">
+                <div class="col-12">
+                    <div class="text-center">
+                        <p class="my-4 text-sm">
+                            <span>Tüm Hakları Saklıdır &copy; | 2021</span><br>
+                            <span>Designed by <b>Erdoğan IŞIK</b></span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--   Core JS Files   -->
+    <script src="~/showcase/assets/js/core/bootstrap.min.js"></script>
+    <script src="~/showcase/assets/js/core/popper.min.js"></script>
+    <script src="~/showcase/assets/js/plugins/perfect-scrollbar.min.js"></script>
+    <!--  Plugin for TypedJS, full documentation here: https://github.com/inorganik/CountUp.js -->
+    <script src="~/showcase/assets/js/plugins/countup.min.js"></script>
+    <!--  Plugin for Parallax, full documentation here: https://github.com/dixonandmoe/rellax -->
+    <script src="~/showcase/assets/js/plugins/rellax.min.js"></script>
+    <!--  Plugin for TiltJS, full documentation here: https://gijsroge.github.io/tilt.js/ -->
+    <script src="~/showcase/assets/js/plugins/tilt.min.js"></script>
+    <!--  Plugin for Selectpicker - ChoicesJS, full documentation here: https://github.com/jshjohnson/Choices -->
+    <script src="~/showcase/assets/js/plugins/choices.min.js"></script>
+    <!--  Plugin for Parallax, full documentation here: https://github.com/wagerfield/parallax  -->
+    <script src="~/showcase/assets/js/plugins/parallax.min.js"></script>
+    <!-- Control Center for Soft UI Kit: parallax effects, scripts for the example pages etc -->
+    <!--  Google Maps Plugin    -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTTfWur0PDbZWPr7Pmq8K3jiDp0_xUziI"></script>
+    <script src="~/showcase/assets/js/soft-design-system.min.js?v=1.0.4" type="text/javascript"></script>
+    <script src="~/showcase/assets/js/scripts.js"></script>
+    <script type="text/javascript">
+        if (document.getElementById('state1')) {
+            const countUp = new CountUp('state1', document.getElementById("state1").getAttribute("countTo"));
+            if (!countUp.error) {
+                countUp.start();
+            } else {
+                console.error(countUp.error);
+            }
+        }
+        if (document.getElementById('state2')) {
+            const countUp1 = new CountUp('state2', document.getElementById("state2").getAttribute("countTo"));
+            if (!countUp1.error) {
+                countUp1.start();
+            } else {
+                console.error(countUp1.error);
+            }
+        }
+        if (document.getElementById('state3')) {
+            const countUp2 = new CountUp('state3', document.getElementById("state3").getAttribute("countTo"));
+            if (!countUp2.error) {
+                countUp2.start();
+            } else {
+                console.error(countUp2.error);
+            };
+        }
+
+        $().ready(function () {
+            $('[rel="tooltip"]').tooltip();
+
+            $('a.scroll-down').click(function (e) {
+                e.preventDefault();
+                scroll_target = $(this).data('href');
+                $('html, body').animate({
+                    scrollTop: $(scroll_target).offset().top - 60
+                }, 1000);
+            });
+
+        });
+
+        function rotateCard(btn) {
+            var $card = $(btn).closest('.card-container');
+            console.log($card);
+            if ($card.hasClass('hover')) {
+                $card.removeClass('hover');
+            } else {
+                $card.addClass('hover');
+            }
+        }
+
+
+    </script>
+
+</body>
+
+</html>
+

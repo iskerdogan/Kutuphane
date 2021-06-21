@@ -23,7 +23,7 @@
 
     <link href="~/memberDashboard/src/css/main.css" rel="stylesheet" />
     <link href="~/memberDashboard/src/css/sidebar-themes.css" rel="stylesheet" />
-    <link rel="shortcut icon" type="image/png" href="https://img.icons8.com/dusk/64/000000/pencil--v1.png" />
+    <link rel="shortcut icon" type="image/png" href="~/memberDashboard/src/img/icons8-database-administrator-48.png" />
 </head>
 
 <body>
@@ -32,70 +32,52 @@
             <div class="sidebar-content">
                 <!-- sidebar-brand  -->
                 <div class="sidebar-item sidebar-brand">
-                    <a href="#">Admin Panelim</a>
+                    <a href="/Statistics/Index/">Admin Panelim</a>
                 </div>
                 <!-- sidebar-header  -->
-                <div class="sidebar-item sidebar-header d-flex flex-nowrap">
-                    <div class="user-pic">
-                        <img class="img-responsive img-rounded" src="~/memberDashboard/src/img/user.jpg" alt="User picture">
-                    </div>
-                    <div class="user-info">
-                        <span class="user-name">
-                            Name
-                            <strong>Surname</strong>
-                        </span>
-                        <span class="user-role">Admin</span>
-                        <span class="user-status">
-                            <i class="fa fa-circle"></i>
-                            <span>Online</span>
-                        </span>
-                    </div>
-                </div>
                 <!-- sidebar-menu  -->
                 <div class=" sidebar-item sidebar-menu">
                     <ul>
-                        <li class="header-menu">
-                            <span>General</span>
-                        </li>
+
                         <li>
                             <a href="/Statistics/Index/">
                                 <i class="fa fa-home"></i>
                                 <span class="menu-text">Anasayfa</span>
-                                <span class="badge badge-pill badge-primary">Beta</span>
                             </a>
                         </li>
                         <li>
                             <a href="/Categories/Index/">
                                 <i class="fa fa-bars"></i>
                                 <span class="menu-text">Kategoriler</span>
-                                <span class="badge badge-pill badge-primary">Beta</span>
+                                <span class="badge badge-pill badge-primary">0</span>
                             </a>
                         </li>
                         <li>
                             <a href="/Writers/Index/">
                                 <i class="fas fa-pen-nib"></i>
                                 <span class="menu-text">Yazarlar</span>
-                                <span class="badge badge-pill badge-primary">Beta</span>
+                                <span class="badge badge-pill badge-primary">0</span>
                             </a>
                         </li>
                         <li>
                             <a href="/Books/Index/">
                                 <i class="fa fa-book"></i>
                                 <span class="menu-text">Kitaplar</span>
-                                <span class="badge badge-pill badge-primary">Beta</span>
+                                <span class="badge badge-pill badge-primary">0</span>
                             </a>
                         </li>
                         <li>
                             <a href="/Members/Index/">
                                 <i class="fa fa-users"></i>
                                 <span class="menu-text">Üyeler</span>
-                                <span class="badge badge-pill badge-primary">Beta</span>
+                                <span class="badge badge-pill badge-primary">0</span>
                             </a>
                         </li>
                         <li>
                             <a href="/Staff/Index/">
                                 <i class="fas fa-briefcase"></i>
                                 <span class="menu-text">Personeller</span>
+                                <span class="badge badge-pill badge-primary">0</span>
                             </a>
                         </li>
                         <li>
@@ -108,6 +90,7 @@
                             <a href="/Loans/Index/">
                                 <i class="fa fa-arrow-circle-right"></i>
                                 <span class="menu-text">Ödünç Kitap Al</span>
+                                <span class="badge badge-pill badge-primary">0</span>
                             </a>
                         </li>
                         <li>
@@ -123,21 +106,15 @@
                             </a>
                         </li>
                         <li>
-                            <a href="/Statistics/WeatherForecast2/">
-                                <i class="fa fa-cloud"></i>
-                                <span class="menu-text">Hava Kartları</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/Statistics/Gallery/">
-                                <i class="fas fa-images"></i>
-                                <span class="menu-text">Galeri</span>
-                            </a>
-                        </li>
-                        <li>
                             <a href="/Showcase/Index/">
                                 <i class="fas fa-globe"></i>
                                 <span class="menu-text">Vitrin</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Hatali/Giris/">
+                                <i class="fas fa-images"></i>
+                                <span class="menu-text">404 Hata sayfası</span>
                             </a>
                         </li>
                     </ul>
@@ -152,9 +129,7 @@
                         <span class="badge-sonar"></span>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuMessage">
-                        <a class="dropdown-item" href="#">Profilim</a>
-                        <a class="dropdown-item" href="#">Yardım</a>
-                        <a class="dropdown-item" href="#">Ayarlar</a>
+                        <a class="dropdown-item" href="/Settings/Index/">Ayarlar</a>
                     </div>
                 </div>
                 <div>
