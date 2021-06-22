@@ -17,28 +17,28 @@
     }
     <div style="margin-top:15px"></div>
     <div class="form-group">
-        <label>Id</label>
+        <label><b>Id</b></label>
         @Html.TextBoxFor(p => p.Id, new { @class = "form-control", @readonly = "readonly" })
         <br />
-        <label>Ad</label>
+        <label><b>Ad</b></label>
         @Html.TextBoxFor(p => p.Books.Name, new { @class = "form-control", @readonly = "readonly" })
         <br />
-        <label>Üye</label>
+        <label><b>Üye</b></label>
         @Html.TextBoxFor(p => p.Members.Name, new { @class = "form-control", @readonly = "readonly" })
         <br />
-        <label>Personel</label>
+        <label><b>Personel</b></label>
         @Html.TextBoxFor(p => p.Staff.NameSurname, new { @class = "form-control", @readonly = "readonly" })
         <br />
-        <label>Alış tarihi</label>
+        <label><b>Alış tarihi</b></label>
         @Html.TextBoxFor(p => p.PurchaseDate, "{0:dd.MM.yyyy}", new { @class = "form-control", @readonly = "readonly" })
         <br />
-        <label>Son iade tarihi</label>
+        <label><b>Son iade tarihi</b></label>
         @Html.TextBoxFor(p => p.ReturnDate, "{0:dd.MM.yyyy}", new { @class = "form-control", @readonly = "readonly" })
         <br />
-        <label>Üyenin iade ettiği tarih</label>
+        <label><b>Üyenin iade ettiği tarih</b></label>
         <input type="text" readonly = "readonly" class="form-control" name="MemberReturnDate" value="@DateTime.Now.ToShortDateString()" />
         <br />
-        <label>Son iade tarihi aşımı</label>
+        <label><b>Son iade tarihi aşımı</b></label>
         <input type="text" readonly = "readonly" id="BeLate" value="@toValue Gün" class="form-control"/>
         
     </div>

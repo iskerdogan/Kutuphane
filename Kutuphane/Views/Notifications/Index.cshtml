@@ -1,31 +1,44 @@
 ﻿@using Kutuphane.Models.Entity
-@model List<Notifications>
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Notifications>
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/Layout.cshtml";
 }
 
+@using (Html.BeginForm("Index", "Notifications", FormMethod.Get))
+{
+    <div style="margin-bottom:15px; margin-top:15px">
+        @Html.TextBox("search", null, new { @class = "form-control", placeholder = "Duyuru Ara.." })
+    </div>
+}
+<a style="float:right;" href="~/Notifications/NewNotification/" class="btn btn-outline-success btn-lg btn-block">Duyuru ekle</a>
 
-<h2>Duyurular</h2>
-<table class="table table-bordered">
-    <tr>
-        <th>Id</th>
-        <th>Kategori</th>
-        <th>Tarih</th>
-        <th>Sil</th>
-        <th>Güncelle</th>
-        <th>İçerik</th>
-    </tr>
-    @foreach (Notifications result in Model)
-    {
-        <tr>
-            <td>@result.Id</td>
-            <td>@result.Category</td>
-            <td>@Convert.ToDateTime(@result.Date).ToString("dd/MM/yyyy")</td>
-            <td><a href="~/Notifications/NotificationDelete/@result.Id" class="btn btn-danger">Sil</a></td>
-            <td><a href="~/Notifications/FetchNotification/@result.Id" class="btn btn-info">Güncelle</a></td>
-            <td><a href="~/Notifications/NotificationContent/@result.Id" class="btn btn-warning">İçerik</a></td>
-        </tr>
-    }
-</table>
-<a href="~/Notifications/NewNotification" class="btn btn-primary">Duyuru ekle</a>
+<div class="container" style=" padding-top: 63px">
+    <div class="row">
+        @foreach (Notifications result in Model)
+        {
+            <div class="col-3">
+                <div class="card border-dark mb-3" style="max-width: 18rem;">
+                    <div class="card-body text-dark" style="text-align:center">
+                        <img src="https://img.icons8.com/wired/40/000000/appointment-reminders.png" />
+                        <h5 class="card-title">@result.Category</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Id: @result.Id</h6>
+                        <h6 class="card-subtitle mb-2 text-muted">Tarih: @Convert.ToDateTime(@result.Date).ToString("dd/MM/yyyy")</h6>
+                        <br />
+                        <div>
+                            <a href="~/Notifications/FetchNotification/@result.Id" class="btn btn-primary btn-sm">Güncelle</a>
+                            @Html.ActionLink("Sil", "NotificationDelete", new { id = result.Id }, new { @class = "btn btn-danger btn-sm", onclick = "return confirm('Silmek istiyor musunuz?')" })
+                            <a href="~/Notifications/NotificationContent/@result.Id" class="btn btn-warning btn-sm">İçerik</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<div>
+    @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
+</div>

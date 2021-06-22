@@ -57,10 +57,10 @@
                         <label><b>Telefon Numarası</b></label>
                         <p>  @result.PhoneNumber</p>
                     </div>
-                    <div class="btn-group text-white" role="group" aria-label="Basic mixed styles example">
+                    <div>
                         <a href="~/Members/BookHistory/@result.Id" style="color:white" class="btn btn-warning">Hareketler</a>
-                        <a href="~/Members/FetchMembers/@result.Id" class="btn btn-primary">Güncelle</a>
                         @Html.ActionLink("Sil", "MembersDelete", new { id = result.Id }, new { @class = "btn btn-danger", onclick = "return confirm('Silmek istiyor musunuz?')" })
+                        <a href="~/Members/FetchMembers/@result.Id" class="btn btn-primary">Güncelle</a>
                     </div>
                 </div>
             </div>

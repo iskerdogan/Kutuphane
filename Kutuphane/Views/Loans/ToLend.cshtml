@@ -7,23 +7,23 @@
 <form class="form-group" method="post">
     <div></div>
     <div style="margin-top:15px">
-        <label>Üye</label>
+        <label><b>Üye</b></label>
         @Html.DropDownListFor(p => p.Members.Id, (List<SelectListItem>)ViewBag.Members, new { @class = "form-control" })
     </div>
     <div style="margin-top:15px">
-        <label>Kitap</label>
+        <label><b>Kitap</b></label>
         @Html.DropDownListFor(p => p.Books.Id, (List<SelectListItem>)ViewBag.Books, new { @class = "form-control" })
     </div>
     <div style="margin-top:15px">
-        <label>Personel</label>
+        <label><b>Personel</b></label>
         @Html.DropDownListFor(p => p.Staff.Id, (List<SelectListItem>)ViewBag.Staff, new { @class = "form-control" })
     </div>
     <div style="margin-top:15px">
-        <label>Kitap alış tarihi</label>
+        <label><b>Kitap alış tarihi</b></label>
         <input type="text" class="form-control" readonly="readonly" name="PurchaseDate" value="@DateTime.Now.ToShortDateString()" />
     </div>
     <div style="margin-top:15px">
-        <label>Kitap iade tarihi</label>
+        <label><b>Kitap iade tarihi</b></label>
         <input type="text" class="form-control" readonly="readonly" name="ReturnDate" value="@DateTime.Now.AddDays(7).ToShortDateString()" />
     </div>
     <div style="margin-top:15px">

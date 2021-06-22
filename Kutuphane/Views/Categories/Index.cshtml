@@ -23,12 +23,13 @@
             <div class="col-3">
                 <div class="card border-dark mb-3" style="max-width: 18rem;">
                     <div class="card-body text-dark" style="text-align:center">
+                        <img src="https://img.icons8.com/carbon-copy/40/000000/category.png" />
                         <h5 class="card-title">@result.Name</h5>
                         <h6 class="card-subtitle mb-2 text-muted">id: @result.Id</h6>
                         <br />
-                        <div class="btn-group text-white" role="group" aria-label="Basic mixed styles example">
-                            <a href="~/Categories/FetchCategory/@result.Id" class="btn btn-primary">Güncelle</a>
-                            @Html.ActionLink("Sil", "CategoryDelete", new { id = result.Id }, new { @class = "btn btn-danger", onclick = "return confirm('Silmek istiyor musunuz?')" })
+                        <div>
+                            <a href="~/Categories/FetchCategory/@result.Id" class="btn btn-primary btn-sm">Güncelle</a>
+                            @Html.ActionLink("Sil", "CategoryDelete", new { id = result.Id }, new { @class = "btn btn-danger btn-sm", onclick = "return confirm('Silmek istiyor musunuz?')" })
                         </div>
                     </div>
                 </div>

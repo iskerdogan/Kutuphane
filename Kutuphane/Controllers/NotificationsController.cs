@@ -1,4 +1,5 @@
 ﻿using Kutuphane.Models.Entity;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,10 +12,14 @@ namespace Kutuphane.Controllers
     {
         // GET: Notifications
         KutuphaneEntities kutuphaneEntities = new KutuphaneEntities();
-        public ActionResult Index()
+        public ActionResult Index(string search, int page = 1)
         {
-            var result = kutuphaneEntities.Notifications.ToList();
-            return View(result);
+            var result = from n in kutuphaneEntities.Notifications select n;
+            if (!string.IsNullOrEmpty(search))
+            {
+                result = result.Where(p => p.Category.Contains(search));
+            }
+            return View(result.OrderByDescending(p => p.Id).ToList().ToPagedList(page, 8));
         }
 
         [HttpGet]

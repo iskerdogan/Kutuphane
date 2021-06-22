@@ -1,32 +1,46 @@
 ﻿@using Kutuphane.Models.Entity
-@model List<Admins>
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Admins>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/Layout.cshtml";
 }
 
-<h2>Settings</h2>
+@using (Html.BeginForm("Index", "Settings", FormMethod.Get))
+{
+    <div style="margin-bottom:15px; margin-top:15px">
+        @Html.TextBox("search", null, new { @class = "form-control", placeholder = "Admin Ara.." })
+    </div>
+}
+<button class="btn btn-outline-success btn-lg btn-block" data-toggle="modal" data-target="#Modal1">Admin ekle</button>
 
-<table class="table table-bordered">
-    <tr>
-        <th>Id</th>
-        <th>Admin Mail</th>
-        <th>Admin Yetki</th>
-        <th>Sil</th>
-        <th>Güncelle</th>
-    </tr>
-    @foreach (Admins result in Model)
-    {
-        <tr>
-            <td>@result.Id</td>
-            <td>@result.Mail</td>
-            <td>@result.Authorize</td>
-            <td><a href="~/Settings/AdminDelete/@result.Id" class="btn btn-danger">Sil</a></td>
-            <td><a href="~/Settings/FetchAdmin/@result.Id" class="btn btn-info">Güncelle</a></td>
-        </tr>
-    }
-</table>
-<button class="btn btn-primary" data-toggle="modal" data-target="#Modal1">Admin ekle</button>
+<div class="container" style=" padding-top: 63px">
+    <div class="row">
+        @foreach (Admins result in Model)
+        {
+            <div class="col-4">
+                <div class="card border-dark mb-3" style="max-width: 18rem;">
+                    <div class="card-body text-dark" style="text-align:center">
+                        <img src="https://img.icons8.com/ios-glyphs/30/000000/user--v1.png" />
+                        <h5 class="card-title">@result.Mail</h5>
+                        <h5 class="card-title">Yetki: @result.Authorize</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">id: @result.Id</h6>
+                        <br />
+                        <div>
+                            <a href="~/Settings/FetchAdmin/@result.Id" class="btn btn-primary btn-sm">Güncelle</a>
+                            @Html.ActionLink("Sil", "AdminDelete", new { id = result.Id }, new { @class = "btn btn-danger btn-sm", onclick = "return confirm('Silmek istiyor musunuz?')" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<div>
+    @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
+</div>
+
 <div class="modal" id="Modal1">
     <div class="modal-dialog">
         <div class="modal-content">

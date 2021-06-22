@@ -1,13 +1,21 @@
 ﻿@using Kutuphane.Models.Entity
-@model List<Transactions>
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Transactions>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/Layout.cshtml";
 }
 
-<h2>Hareketler</h2>
-
-<table class="table table-bordered">
+<h2 style="text-align:center">Tüm Hareketler</h2>
+<br />
+@using (Html.BeginForm("Index", "Transactions", FormMethod.Get))
+{
+    <div style="margin-bottom:15px; margin-top:15px">
+        @Html.TextBox("search", null, new { @class = "form-control", placeholder = "Ara.." })
+    </div>
+}
+<table class="table table-striped">
     <tr>
         <th>Id</th>
         <th>Ad</th>
@@ -15,7 +23,6 @@
         <th>Personel</th>
         <th>Alış Tarihi</th>
         <th>Üye İade Tarihi</th>
-        <th>İşlem</th>
     </tr>
     @foreach (Transactions result in Model)
     {
@@ -26,8 +33,10 @@
             <td>@result.Staff.NameSurname</td>
             <td>@Convert.ToDateTime(@result.PurchaseDate).ToString("dd/MM/yyyy")</td>
             <td>@Convert.ToDateTime(@result.MemberReturnDate).ToString("dd/MM/yyyy")</td>
-            <td><a href="#" class="btn btn-info">Detaylar</a></td>
         </tr>
     }
 
 </table>
+<div>
+    @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
+</div>

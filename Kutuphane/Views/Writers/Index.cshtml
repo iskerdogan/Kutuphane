@@ -23,13 +23,14 @@
             <div class="col-3">
                 <div class="card border-dark mb-3" style="max-width: 18rem;">
                     <div class="card-body text-dark" style="text-align:center">
+                        <img src="https://img.icons8.com/pastel-glyph/40/000000/pencil--v1.png" />
                         <h5 class="card-title">@result.Name @result.Surname</h5>
                         <h6 class="card-subtitle mb-2 text-muted">id: @result.Id</h6>
                         <br />
-                        <div class="btn-group text-white" role="group" aria-label="Basic mixed styles example">
-                            <a href="/Writers/WriterBooks/@result.Id" style="color:white" class="btn btn-warning">Kitapları</a>
-                            <a href="/Writers/FetchWriter/@result.Id" class="btn btn-primary">Güncelle</a>
-                            @Html.ActionLink("Sil", "WriterDelete", new { id = result.Id }, new { @class = "btn btn-danger", onclick = "return confirm('Silmek istiyor musunuz?')" })
+                        <div>
+                            <a href="/Writers/FetchWriter/@result.Id" class="btn btn-primary btn-sm">Güncelle</a>
+                            @Html.ActionLink("Sil", "WriterDelete", new { id = result.Id }, new { @class = "btn btn-danger btn-sm", onclick = "return confirm('Silmek istiyor musunuz?')" })
+                            <a href="/Writers/WriterBooks/@result.Id" style="color:white" class="btn btn-warning btn-sm">Kitapları</a>
                         </div>
                     </div>
                 </div>
