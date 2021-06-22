@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Kutuphane.Models.Entity;
+using PagedList;
 
 namespace Kutuphane.Controllers
 {
@@ -11,10 +12,14 @@ namespace Kutuphane.Controllers
     {
         // GET: Categories
         KutuphaneEntities kutuphaneEntities = new KutuphaneEntities();
-        public ActionResult Index()
+        public ActionResult Index(string search, int page = 1)
         {
-            var result = kutuphaneEntities.Categories.Where(p=>p.Active==true).ToList();
-            return View(result);
+            var result = from c in kutuphaneEntities.Categories select c;
+            if (!string.IsNullOrEmpty(search))
+            {
+                result = result.Where(p => p.Name.Contains(search));
+            }
+            return View(result.Where(p => p.Active == true).ToList().ToPagedList(page, 16));
         }
 
         [HttpGet]
@@ -26,9 +31,10 @@ namespace Kutuphane.Controllers
         [HttpPost]
         public ActionResult CategoryAdd(Categories categories)
         {
+            categories.Active = true;
             kutuphaneEntities.Categories.Add(categories);
             kutuphaneEntities.SaveChanges();
-            return View();
+            return RedirectToAction("Index");
         }
 
         public ActionResult CategoryDelete(int id)

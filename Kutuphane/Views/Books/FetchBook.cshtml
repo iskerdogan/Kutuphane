@@ -10,7 +10,7 @@
     <div class="form-group">
         <div style="margin-bottom:15px">
             <label>Kitap Id</label>
-            @Html.TextBoxFor(p => p.Id, new { @class = "form-control" })
+            @Html.TextBoxFor(p => p.Id, new { @class = "form-control", @readonly = "readonly" })
         </div>
 
         <div style="margin-bottom:15px">
@@ -47,7 +47,7 @@
             <label>Fotoğraf Linki</label>
             @Html.TextBoxFor(p => p.Image, new { @class = "form-control" })
         </div>
-        <button class="btn btn-success">Güncelle</button>
+        <button class="btn btn-primary">Güncelle</button>
         <input type="hidden" name="Active" value="True" />
     </div>
 }

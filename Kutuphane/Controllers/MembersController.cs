@@ -13,10 +13,14 @@ namespace Kutuphane.Controllers
     {
         // GET: Members
         KutuphaneEntities kutuphaneEntities = new KutuphaneEntities();
-        public ActionResult Index(int page=1)
+        public ActionResult Index(string search,int page=1)
         {
-            var result = kutuphaneEntities.Members.ToList().ToPagedList(page,3);
-            return View(result);
+            var result = from m in kutuphaneEntities.Members select m;
+            if (!string.IsNullOrEmpty(search))
+            {
+                result = result.Where(p => p.Name.Contains(search));
+            }
+            return View(result.ToList().ToPagedList(page, 8));
         }
 
         [HttpGet]

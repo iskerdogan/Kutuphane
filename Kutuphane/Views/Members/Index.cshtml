@@ -6,37 +6,67 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/Layout.cshtml";
 }
-<h2>Üyeler</h2>
-<table class="table table-bordered">
-    <tr>
-        <th>Id</th>
-        <th>Ad</th>
-        <th>Soyad</th>
-        <th>Mail</th>
-        <th>Kullanıcı Ad</th>
-        <th>Okul</th>
-        <th>Sil</th>
-        <th>Güncelle</th>
-        <th>Kitap Hareketleri</th>
-    </tr>
-    @foreach (Members result in Model)
-    {
-        <tr>
-            <td>@result.Id</td>
-            <td>@result.Name</td>
-            <td>@result.Surname</td>
-            <td>@result.Mail</td>
-            <td>@result.UserName</td>
-            <td>@result.School</td>
-            <td><a href="~/Members/MembersDelete/@result.Id" class="btn btn-danger">Sil</a></td>
-            <td><a href="~/Members/FetchMembers/@result.Id" class="btn btn-info">Güncelle</a></td>
-            <td><a href="~/Members/BookHistory/@result.Id" class="btn btn-success" style="background-color:lightseagreen">Hareketler</a></td>
-        </tr>
+
+<link href="~/memberDashboard/src/css/adminlte.css" rel="stylesheet" />
+<style>
+    .c {
+        padding: 15px;
+        margin-top: 30px;
+        box-shadow: 0 0 16px 1px rgba(0, 0, 0, 0.1);
     }
-</table>
-<div>
-    @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page}))
+
+        .c img {
+            width: 100%;
+            object-fit: cover;
+            border-radius: 3px;
+            /* background-color: white; */
+            box-shadow: 0 3px 20px 11px rgba(0, 0, 0, 0.09);
+        }
+
+        .c .top-sec {
+            margin-top: -30px;
+            margin-bottom: 15px;
+        }
+</style>
+@using (Html.BeginForm("Index", "Members", FormMethod.Get))
+{
+    <div style="margin-bottom:15px; margin-top:15px">
+        @Html.TextBox("search", null, new { @class = "form-control", placeholder = "Üye Ara.." })
+    </div>
+}
+<a style="float:right" href="~/Members/MembersAdd" class="btn btn-outline-success btn-lg btn-block">Üye ekle</a>
+<div class="container">
+    <div class="row">
+        @foreach (Members result in Model)
+        {
+            <div class="col-3">
+                <div class="card c">
+                    <div class="top-sec" style="position:relative">
+                        <p style="position:absolute; top:0px; color:red"><b>ID: @result.Id</b></p>
+                        <img width="150" height="350" src="@result.Image">
+                    </div>
+                    <div class="bottom-sec" style="text-align:center">
+                        <label><b>Ad Soyad</b></label>
+                        <p> @result.Name @result.Surname</p>
+                        <label><b>Mail</b></label>
+                        <p>  @result.Mail</p>
+                        <label><b>Kullanıcı Adı</b></label>
+                        <p>  @result.UserName</p>
+                        <label><b>Okul</b></label>
+                        <p>  @result.School</p>
+                        <label><b>Telefon Numarası</b></label>
+                        <p>  @result.PhoneNumber</p>
+                    </div>
+                    <div class="btn-group text-white" role="group" aria-label="Basic mixed styles example">
+                        <a href="~/Members/BookHistory/@result.Id" style="color:white" class="btn btn-warning">Hareketler</a>
+                        <a href="~/Members/FetchMembers/@result.Id" class="btn btn-primary">Güncelle</a>
+                        @Html.ActionLink("Sil", "MembersDelete", new { id = result.Id }, new { @class = "btn btn-danger", onclick = "return confirm('Silmek istiyor musunuz?')" })
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
 </div>
-
-
-<a href="~/Members/MembersAdd" class="btn btn-primary">Üye ekle</a>
+<div>
+    @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
+</div>

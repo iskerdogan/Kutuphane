@@ -1,30 +1,45 @@
 ﻿@using Kutuphane.Models.Entity
-@model List<Writers>
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Writers>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/Layout.cshtml";
 }
 
-<h2>Yazarlar</h2>
-<table class="table table-bordered">
-    <tr style="background-color:Highlight">
-        <th>Id</th>
-        <th>Ad</th>
-        <th>Soyad</th>
-        <th>Sil</th>
-        <th>Güncelle</th>
-        <th>Yazarın Kitapları</th>
-    </tr>
-    @foreach (Writers result in Model)
-    {
-        <tr>
-            <td>@result.Id</td>
-            <td>@result.Name</td>
-            <td>@result.Surname</td>
-            <td>@Html.ActionLink("Sil", "WriterDelete", new { id = result.Id }, new { @class = "btn btn-danger", onclick = "return confirm('Silmek istiyor musunuz?')" })</td>
-            <td><a href="/Writers/FetchWriter/@result.Id" class="btn btn-info">Güncelle</a></td>
-            <td><a href="/Writers/WriterBooks/@result.Id" class="btn btn-warning">Kitapları</a></td>
-        </tr>
-    }
-</table>
-<a href="/Writers/WriterAdd" class="btn btn-primary">Yazar ekle</a>
+
+@using (Html.BeginForm("Index", "Writers", FormMethod.Get))
+{
+    <div style="margin-bottom:15px; margin-top:15px">
+        @Html.TextBox("search", null, new { @class = "form-control", placeholder = "Yazar Ara.." })
+    </div>
+}
+<a style="float:right;" href="/Writers/WriterAdd" class="btn btn-outline-success btn-lg btn-block">Yazar ekle</a>
+
+<div class="container" style=" padding-top: 63px">
+    <div class="row">
+        @foreach (Writers result in Model)
+        {
+            <div class="col-3">
+                <div class="card border-dark mb-3" style="max-width: 18rem;">
+                    <div class="card-body text-dark" style="text-align:center">
+                        <h5 class="card-title">@result.Name @result.Surname</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">id: @result.Id</h6>
+                        <br />
+                        <div class="btn-group text-white" role="group" aria-label="Basic mixed styles example">
+                            <a href="/Writers/WriterBooks/@result.Id" style="color:white" class="btn btn-warning">Kitapları</a>
+                            <a href="/Writers/FetchWriter/@result.Id" class="btn btn-primary">Güncelle</a>
+                            @Html.ActionLink("Sil", "WriterDelete", new { id = result.Id }, new { @class = "btn btn-danger", onclick = "return confirm('Silmek istiyor musunuz?')" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<div>
+    @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
+</div>
+
+
+

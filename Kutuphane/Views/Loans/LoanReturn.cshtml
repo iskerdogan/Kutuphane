@@ -2,35 +2,44 @@
 @{
     ViewBag.Title = "LoanReturn";
     Layout = "~/Views/Shared/Layout.cshtml";
+    int toValue;
 }
 
 @using (Html.BeginForm("LoanReturnUpdate", "Loans", FormMethod.Post))
 {
+    if (@ViewBag.toValue > 0)
+    {
+        toValue = (int)@ViewBag.toValue;
+    }
+    else
+    {
+        toValue = 0;
+    }
     <div style="margin-top:15px"></div>
     <div class="form-group">
         <label>Id</label>
-        @Html.TextBoxFor(p => p.Id, new { @class = "form-control" })
+        @Html.TextBoxFor(p => p.Id, new { @class = "form-control", @readonly = "readonly" })
         <br />
         <label>Ad</label>
-        @Html.TextBoxFor(p => p.Books.Name, new { @class = "form-control" })
+        @Html.TextBoxFor(p => p.Books.Name, new { @class = "form-control", @readonly = "readonly" })
         <br />
         <label>Üye</label>
-        @Html.TextBoxFor(p => p.Members.Name, new { @class = "form-control" })
+        @Html.TextBoxFor(p => p.Members.Name, new { @class = "form-control", @readonly = "readonly" })
         <br />
         <label>Personel</label>
-        @Html.TextBoxFor(p => p.Staff.NameSurname, new { @class = "form-control" })
+        @Html.TextBoxFor(p => p.Staff.NameSurname, new { @class = "form-control", @readonly = "readonly" })
         <br />
         <label>Alış tarihi</label>
-        @Html.TextBoxFor(p => p.PurchaseDate, "{0:dd.MM.yyyy}", new { @class = "form-control" })
+        @Html.TextBoxFor(p => p.PurchaseDate, "{0:dd.MM.yyyy}", new { @class = "form-control", @readonly = "readonly" })
         <br />
         <label>Son iade tarihi</label>
-        @Html.TextBoxFor(p => p.ReturnDate, "{0:dd.MM.yyyy}", new { @class = "form-control" })
+        @Html.TextBoxFor(p => p.ReturnDate, "{0:dd.MM.yyyy}", new { @class = "form-control", @readonly = "readonly" })
         <br />
         <label>Üyenin iade ettiği tarih</label>
-        <input type="text" class="form-control" name="MemberReturnDate" value="@DateTime.Now.ToShortDateString()" />
+        <input type="text" readonly = "readonly" class="form-control" name="MemberReturnDate" value="@DateTime.Now.ToShortDateString()" />
         <br />
         <label>Son iade tarihi aşımı</label>
-        <input type="text" id="BeLate" value="@ViewBag.toValue" class="form-control"/>
+        <input type="text" readonly = "readonly" id="BeLate" value="@toValue Gün" class="form-control"/>
         
     </div>
     <div>

@@ -9,7 +9,7 @@
     <div style="margin-top:15px"></div>
     <div class="form-group">
         @Html.LabelFor(p => p.Id)
-        @Html.TextBoxFor(p => p.Id, new { @class = "form-control" })
+        @Html.TextBoxFor(p => p.Id, new { @class = "form-control", @readonly = "readonly" })
         <br />
         <label>Ad</label>
         @Html.TextBoxFor(p => p.Name, new { @class = "form-control" })
@@ -36,7 +36,7 @@
         @Html.TextBoxFor(p => p.School, new { @class = "form-control" })
     </div>
     <div>
-        <button class="btn btn-success">Güncelle</button>
+        <button class="btn btn-primary">Güncelle</button>
     </div>
 }
 

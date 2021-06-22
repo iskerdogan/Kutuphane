@@ -1,27 +1,43 @@
 ﻿@using Kutuphane.Models.Entity
-@model List<Categories>
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Categories>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/Layout.cshtml";
 }
 
-<h2>Kategoriler</h2>
 
-<table class="table table-bordered">
-    <tr>
-        <th>Id</th>
-        <th>Kategori Ad</th>
-        <th>Sil</th>
-        <th>Güncelle</th>
-    </tr>
-    @foreach(Categories result in Model)
-    { 
-    <tr>
-        <td>@result.Id</td>
-        <td>@result.Name</td>
-        <td><a href="~/Categories/CategoryDelete/@result.Id" class="btn btn-danger">Sil</a></td>
-        <td><a href="~/Categories/FetchCategory/@result.Id" class="btn btn-info">Güncelle</a></td>
-    </tr>
-    }
-</table>
-<a href="~/Categories/CategoryAdd" class="btn btn-primary">Kategori ekle</a>
+@using (Html.BeginForm("Index", "Categories", FormMethod.Get))
+{
+    <div style="margin-bottom:15px; margin-top:15px">
+        @Html.TextBox("search", null, new { @class = "form-control", placeholder = "Kategori Ara.." })
+    </div>
+}
+<a style="float:right;" href="~/Categories/CategoryAdd/" class="btn btn-outline-success btn-lg btn-block">Kategori ekle</a>
+
+<div class="container" style=" padding-top: 63px">
+    <div class="row">
+        @foreach (Categories result in Model)
+        {
+            <div class="col-3">
+                <div class="card border-dark mb-3" style="max-width: 18rem;">
+                    <div class="card-body text-dark" style="text-align:center">
+                        <h5 class="card-title">@result.Name</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">id: @result.Id</h6>
+                        <br />
+                        <div class="btn-group text-white" role="group" aria-label="Basic mixed styles example">
+                            <a href="~/Categories/FetchCategory/@result.Id" class="btn btn-primary">Güncelle</a>
+                            @Html.ActionLink("Sil", "CategoryDelete", new { id = result.Id }, new { @class = "btn btn-danger", onclick = "return confirm('Silmek istiyor musunuz?')" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<div>
+    @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
+</div>
+
+

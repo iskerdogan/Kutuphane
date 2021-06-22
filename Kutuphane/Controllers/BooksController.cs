@@ -19,7 +19,6 @@ namespace Kutuphane.Controllers
             {
                 result = result.Where(p => p.Name.Contains(search));
             }
-            //var result = kutuphaneEntities.Books.ToList();
             return View(result.ToList().ToPagedList(page, 8));
         }
 
