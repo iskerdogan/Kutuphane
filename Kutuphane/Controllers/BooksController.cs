@@ -1,4 +1,5 @@
 ﻿using Kutuphane.Models.Entity;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace Kutuphane.Controllers
     {
         // GET: Books
         KutuphaneEntities kutuphaneEntities = new KutuphaneEntities();
-        public ActionResult Index(string search)
+        public ActionResult Index(string search,int page=1)
         {
             var result = from k in kutuphaneEntities.Books select k;
             if (!string.IsNullOrEmpty(search))
@@ -19,7 +20,7 @@ namespace Kutuphane.Controllers
                 result = result.Where(p => p.Name.Contains(search));
             }
             //var result = kutuphaneEntities.Books.ToList();
-            return View(result.ToList());
+            return View(result.ToList().ToPagedList(page, 8));
         }
 
         [HttpGet]
@@ -87,6 +88,7 @@ namespace Kutuphane.Controllers
             result.Name = books.Name;
             result.Year = books.Year;
             result.NumberOfPages = books.NumberOfPages;
+            result.Image = books.Image;
             result.Publisher = books.Publisher;
             result.Active = books.Active;
             var category = kutuphaneEntities.Categories.Where(p => p.Id == books.Categories.Id).FirstOrDefault();

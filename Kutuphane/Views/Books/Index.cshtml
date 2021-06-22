@@ -1,60 +1,89 @@
 ﻿@using Kutuphane.Models.Entity
-@model List<Books>
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Books>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/Layout.cshtml";
+    string astatus = "";
+    string spanstatus = "";
 }
 
 <link href="~/memberDashboard/src/css/adminlte.css" rel="stylesheet" />
 
-<h2>Kitap</h2>
+<style>
+    .c {
+        padding: 15px;
+        margin-top: 30px;
+        box-shadow: 0 0 16px 1px rgba(0, 0, 0, 0.1);
+    }
+
+        .c img {
+            width: 100%;
+            object-fit: cover;
+            border-radius: 3px;
+            /* background-color: white; */
+            box-shadow: 0 3px 20px 11px rgba(0, 0, 0, 0.09);
+        }
+
+        .c .top-sec {
+            margin-top: -30px;
+            margin-bottom: 15px;
+        }
+</style>
+<a style="float:right" href="/Books/BookAdd" class="btn btn-primary">Kitap ekle</a>
+
+<h2>Kitaplar</h2>
 @using (Html.BeginForm("Index", "Books", FormMethod.Get))
 {
     <div style="margin-bottom:15px; margin-top:15px">
         @Html.TextBox("search", null, new { @class = "form-control", placeholder = "Ara.." })
     </div>
 }
+<div class="container">
+    <div class="row">
+        @foreach (Books result in Model)
+        {
+            if (result.Active == true)
+            {
+                astatus = "btn btn-success";
+                spanstatus = "bg-success";
+            }
+            else
+            {
+                astatus = "btn btn-danger";
+                spanstatus = "bg-danger";
+            }
+            <div class="col-3">
+                <div class="card c">
+                    <div class="top-sec" style="position:relative">
+                        <p style="position:absolute; top:0px; color:red"><b>ID: @result.Id</b></p>
+                        <img width="150" height="350" src="@result.Image">
+                    </div>
+                    <div class="bottom-sec" style="text-align:center">
 
-<table class="table table-bordered">
-    <tr>
-        <th>Id</th>
-        <th>Ad</th>
-        <th>Yazar</th>
-        <th>Kategori</th>
-        <th>Basım Yılı</th>
-        <th>Yayınevi</th>
-        <th>Sayfa sayısı</th>
-        <th>Durum</th>
-        <th>Sil</th>
-        <th>Güncelle</th>
-    </tr>
-    @foreach (Books result in Model)
-    {
-        <tr>
-            <td>@result.Id</td>
-            <td>@result.Name</td>
-            <td>@result.Writers.Name @result.Writers.Surname</td>
-            <td>@result.Categories.Name</td>
-            <td>@result.Year</td>
-            <td>@result.Publisher</td>
-            <td>@result.NumberOfPages</td>
-            <td>@result.Active</td>
-            <td>@Html.ActionLink("Sil", "BookDelete", new { id = result.Id }, new { @class = "btn btn-danger", onclick = "return confirm('Silmek istiyor musunuz?')" })</td>
-            <td><a href="/Books/FetchBook/@result.Id" class="btn btn-info">Güncelle</a></td>
-        </tr>
-    }
-
-</table>
-<a href="/Books/BookAdd" class="btn btn-primary">Kitap ekle</a>
-
-<div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="..." alt="Card image cap">
-    <div class="card-body">
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">Cras justo odio</li>
-            <li class="list-group-item">Dapibus ac facilisis in</li>
-            <li class="list-group-item">Vestibulum at eros</li>
-        </ul>
+                        <p> <b>Ad:</b> @result.Name</p>
+                        <p> <b>Yazar:</b> @result.Writers.Name @result.Writers.Surname</p>
+                        <p> <b>Kategori:</b> @result.Categories.Name</p>
+                        <p> <b>Yıl:</b> @result.Year</p>
+                        <p> <b>Yayınevi:</b> @result.Publisher</p>
+                        <p> <b>Sayfa sayısı:</b> @result.NumberOfPages</p>
+                    </div>
+                    <div class="btn-group text-white" role="group" aria-label="Basic mixed styles example">
+                        <a href="/Books/FetchBook/@result.Id" class="btn btn-info">Güncelle</a>
+                        @Html.ActionLink("Sil", "BookDelete", new { id = result.Id }, new { @class = "btn btn-danger", onclick = "return confirm('Silmek istiyor musunuz?')" })
+                    </div>
+                    <br />
+                    <a class="@astatus">
+                        <span class="@spanstatus">
+                        </span>
+                    </a>
+                </div>
+            </div>
+        }
     </div>
 </div>
+<div>
+    @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
+</div>
+

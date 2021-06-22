@@ -42,6 +42,11 @@
             <label>Sayfa sayısı</label>
             @Html.TextBoxFor(p => p.NumberOfPages, new { @class = "form-control" })
         </div>
+
+        <div style="margin-bottom:15px">
+            <label>Fotoğraf Linki</label>
+            @Html.TextBoxFor(p => p.Image, new { @class = "form-control" })
+        </div>
         <button class="btn btn-success">Güncelle</button>
         <input type="hidden" name="Active" value="True" />
     </div>
