@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace Kutuphane.Controllers
 {
+    [Authorize(Roles = "A")]
     public class SettingsController : Controller
     {
         // GET: Settings
