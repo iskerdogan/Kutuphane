@@ -13,7 +13,8 @@
         @Html.TextBox("search", null, new { @class = "form-control", placeholder = "Personel Ara.." })
     </div>
 }
-<a style="float:right;" href="~/Staff/StaffAdd/" class="btn btn-outline-success btn-lg btn-block">Personel ekle</a>
+
+<button class="btn btn-outline-success btn-lg btn-block" data-toggle="modal" data-target="#Modal1">Personel ekle</button>
 
 <div class="container" style=" padding-top: 63px">
     <div class="row">
@@ -38,4 +39,23 @@
 </div>
 <div>
     @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
+</div>
+
+<div class="modal" id="Modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Personel Ekleme Paneli</h2>
+            </div>
+            <form action="~/Staff/StaffAdd/" method="post">
+                <div class="modal-body">
+                    <label><b>Personel Ad Soyad</b></label>
+                    <input type="text" name="NameSurname" class="form-control" />
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-success">Ekle</button>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>

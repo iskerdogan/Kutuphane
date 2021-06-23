@@ -6,54 +6,55 @@
 
 <form class="form-group" method="post">
     <div style="margin-top:15px">
-        <label>Ad</label>
+        <label><b>Ad</b></label>
         @Html.TextBoxFor(p => p.Name, new { @class = "form-control" })
         @Html.ValidationMessageFor(p => p.Name, "", new { @style = "color:red" })
     </div>
 
     <div style="margin-top:15px">
-        <label>Soyad</label>
+        <label><b>Soyad</b></label>
         @Html.TextBoxFor(p => p.Surname, new { @class = "form-control" })
         @Html.ValidationMessageFor(p => p.Surname, "", new { @style = "color:red" })
     </div>
 
     <div style="margin-top:15px">
-        <label>Mail</label>
+        <label><b>Mail</b></label>
         @Html.TextBoxFor(p => p.Mail, new { @class = "form-control" })
         @Html.ValidationMessageFor(p => p.Mail, "", new { @style = "color:red" })
     </div>
 
     <div style="margin-top:15px">
-        <label>Kullanıcı ad</label>
+        <label><b>Kullanıcı ad</b></label>
         @Html.TextBoxFor(p => p.UserName, new { @class = "form-control" })
         @Html.ValidationMessageFor(p => p.UserName, "", new { @style = "color:red" })
     </div>
 
     <div style="margin-top:15px">
-        <label>Şifre</label>
+        <label><b>Şifre</b></label>
         @Html.TextBoxFor(p => p.Password, new { @class = "form-control" })
         @Html.ValidationMessageFor(p => p.Password, "", new { @style = "color:red" })
     </div>
 
     <div style="margin-top:15px">
-        <label>Fotoğraf Linki</label>
+        <label><b>Fotoğraf Linki</b></label>
         @Html.TextBoxFor(p => p.Image, new { @class = "form-control" })
         @Html.ValidationMessageFor(p => p.Image, "", new { @style = "color:red" })
     </div>
 
     <div style="margin-top:15px">
-        <label>Telefon</label>
+        <label><b>Telefon</b></label>
         @Html.TextBoxFor(p => p.PhoneNumber, new { @class = "form-control" })
         @Html.ValidationMessageFor(p => p.PhoneNumber, "", new { @style = "color:red" })
     </div>
 
     <div style="margin-top:15px">
-        <label>Okul</label>
+        <label><b>Okul</b></label>
         @Html.TextBoxFor(p => p.School, new { @class = "form-control" })
         @Html.ValidationMessageFor(p => p.School, "", new { @style = "color:red" })
+        <br />
     </div>
 
-    <div style="margin-top:15px">
+    <div class="modal-footer">
         <button class="btn btn-success" id="btn1">Ekle</button>
     </div>
 </form>

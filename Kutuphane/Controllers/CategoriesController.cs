@@ -25,7 +25,8 @@ namespace Kutuphane.Controllers
         [HttpGet]
         public ActionResult CategoryAdd()
         {
-            return View();
+            var result = kutuphaneEntities.Categories.ToList();
+            return View(result);
         }
 
         [HttpPost]

@@ -5,21 +5,22 @@
     Layout = "~/Views/Shared/Layout.cshtml";
 }
 
-<h2>Duyuru İçeriği</h2>
-<table class="table table-bordered">
-    <tr>
-        <th>Id</th>
-        <th>Kategori</th>
-        <th>İçerik</th>
-        <th>Tarih</th>
-    </tr>
+<div class="container" style="padding-top:200px; padding-bottom:200px">
     @foreach (Notifications result in Model)
     {
-        <tr>
-            <td>@result.Id</td>
-            <td>@result.Category</td>
-            <td>@result.NotificationContent</td>
-            <td>@Convert.ToDateTime(@result.Date).ToString("dd/MM/yyyy")</td>
-        </tr>
+        <div class="card text-center">
+            <div class="card-header">
+                <img src="https://img.icons8.com/wired/40/000000/appointment-reminders.png" /><br />
+                Id: @result.Id
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">@result.Category</h5>
+                <p class="card-text">@result.NotificationContent</p>
+            </div>
+            <div class="card-footer text-muted">
+                @Convert.ToDateTime(@result.Date).ToString("dd/MM/yyyy")
+            </div>
+        </div>
     }
-</table>
+</div>
+

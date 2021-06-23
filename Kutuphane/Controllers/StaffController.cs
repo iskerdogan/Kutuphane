@@ -25,7 +25,8 @@ namespace Kutuphane.Controllers
         [HttpGet]
         public ActionResult StaffAdd()
         {
-            return View();
+            var result = kutuphaneEntities.Staff.ToList();
+            return View(result);
         }
 
         [HttpPost]

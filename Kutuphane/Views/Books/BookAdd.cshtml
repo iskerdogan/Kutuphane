@@ -7,34 +7,35 @@
 <form class="form-group" method="post">
     <div></div>
     <div style="margin-top:15px">
-        <label>Kitap Ad</label>
+        <label><b>Kitap Ad</b></label>
         @Html.TextBoxFor(p => p.Name, new { @class = "form-control" })
     </div>
     <div style="margin-top:15px">
-        <label>Kategori</label>
+        <label><b>Kategori</b></label>
         @Html.DropDownListFor(p => p.Categories.Id, (List<SelectListItem>)ViewBag.result, new { @class = "form-control" })
     </div>
     <div style="margin-top:15px">
-        <label>Yazar</label>
+        <label><b>Yazar</b></label>
         @Html.DropDownListFor(p => p.Writers.Id, (List<SelectListItem>)ViewBag.result2, new { @class = "form-control" })
     </div>
     <div style="margin-top:15px">
-        <label>Basım yılı</label>
+        <label><b>Basım yılı</b></label>
         @Html.TextBoxFor(p => p.Year, new { @class = "form-control" })
     </div>
     <div style="margin-top:15px">
-        <label>Yayınevi</label>
+        <label><b>Yayınevi</b></label>
         @Html.TextBoxFor(p => p.Publisher, new { @class = "form-control" })
     </div>
     <div style="margin-top:15px">
-        <label>Sayfa sayısı</label>
+        <label><b>Sayfa sayısı</b></label>
         @Html.TextBoxFor(p => p.NumberOfPages, new { @class = "form-control" })
     </div>
     <div style="margin-top:15px">
-        <label>Kitap Fotoğraf Linki</label>
+        <label><b>Kitap Fotoğraf Linki</b></label>
         @Html.TextBoxFor(p => p.Image, new { @class = "form-control" })
+        <br />
     </div>
-    <div style="margin-top:15px">
+    <div class="modal-footer">
         <button class="btn btn-success">Ekle</button>
     </div>
     <input type="hidden" name="Active" value="True" />

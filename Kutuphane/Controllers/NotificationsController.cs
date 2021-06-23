@@ -25,7 +25,8 @@ namespace Kutuphane.Controllers
         [HttpGet]
         public ActionResult NewNotification()
         {
-            return View();
+            var result = kutuphaneEntities.Notifications.ToList();
+            return View(result);
         }
 
         [HttpPost]

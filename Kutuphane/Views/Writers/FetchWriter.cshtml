@@ -26,8 +26,12 @@
         <div style="margin-bottom:15px">
             <label>Yazar Detay</label>
             @Html.TextAreaFor(p => p.Detail, new { @class = "form-control" })
+            <br />
         </div>
-        <button class="btn btn-primary">Güncelle</button>
+        <div class="modal-footer">
+            <button class="btn btn-primary">Güncelle</button>
+        </div>
+        
     </div>
 }
 

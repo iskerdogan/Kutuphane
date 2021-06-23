@@ -4,7 +4,6 @@
     Layout = "~/Views/Shared/Layout.cshtml";
 }
 
-<h2>FetchNotification</h2>
 @using (Html.BeginForm("NotificationUpdate", "Notifications", FormMethod.Post))
 {
     <div style="margin-top:15px"></div>
@@ -21,7 +20,7 @@
         @Html.LabelFor(p => p.Date)
         @Html.TextBoxFor(p => p.Date, new { @class = "form-control" })
     </div>
-    <div>
-        <button class="btn btn-success">Güncelle</button>
+    <div class="modal-footer">
+        <button class="btn btn-primary">Güncelle</button>
     </div>
 }

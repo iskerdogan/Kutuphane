@@ -46,9 +46,12 @@
         <div style="margin-bottom:15px">
             <label>Fotoğraf Linki</label>
             @Html.TextBoxFor(p => p.Image, new { @class = "form-control" })
+            <br />
         </div>
-        <button class="btn btn-primary">Güncelle</button>
-        <input type="hidden" name="Active" value="True" />
+        <div class="modal-footer">
+            <button class="btn btn-primary">Güncelle</button>
+            <input type="hidden" name="Active" value="True" />
+        </div>  
     </div>
 }
 

@@ -25,7 +25,8 @@ namespace Kutuphane.Controllers
         [HttpGet]
         public ActionResult WriterAdd()
         {
-            return View();
+            var result = kutuphaneEntities.Writers.ToList();
+            return View(result);
         }
 
         [HttpPost]

@@ -1,18 +1,20 @@
 ﻿@using Kutuphane.Models.Entity
-@model List<Transactions>
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Transactions>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/Layout.cshtml";
 }
 
-@*@using (Html.BeginForm("Index", "Books", FormMethod.Get))
+@using (Html.BeginForm("Index", "Loans", FormMethod.Get))
 {
     <div style="margin-bottom:15px; margin-top:15px">
-        <b>Aranacak kitap adı giriniz: </b>@Html.TextBox("search", ' ', new { @class = "form-control" })
+        @Html.TextBox("search", null, new { @class = "form-control", placeholder = "Ara.." })
     </div>
-}*@
+}
 
-<table class="table table-bordered">
+<table class="table table-hover">
     <tr>
         <th>Id</th>
         <th>Ad</th>
@@ -36,4 +38,7 @@
     }
 
 </table>
+<div>
+    @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
+</div>
 

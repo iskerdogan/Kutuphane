@@ -14,9 +14,10 @@
         @Html.TextBox("search", null, new { @class = "form-control", placeholder = "Kategori Ara.." })
     </div>
 }
-<a style="float:right;" href="~/Categories/CategoryAdd/" class="btn btn-outline-success btn-lg btn-block">Kategori ekle</a>
 
-<div class="container" style=" padding-top: 63px">
+<button class="btn btn-outline-success btn-lg btn-block" data-toggle="modal" data-target="#Modal1">Kategori ekle</button>
+
+<div class="container" style=" padding-top: 15px">
     <div class="row">
         @foreach (Categories result in Model)
         {
@@ -41,4 +42,23 @@
     @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
 </div>
 
+<div class="modal" id="Modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Kategori Ekleme Paneli</h2>
+            </div>
+            <form action="/Categories/CategoryAdd/" method="post">
+                <div class="modal-body">
+                    <label><b>Kategori Ad</b></label>
+                    <input type="text" name="Name" class="form-control" />
+                    <br />
+                    <div class="modal-footer">
+                        <button class="btn btn-success">Ekle</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 

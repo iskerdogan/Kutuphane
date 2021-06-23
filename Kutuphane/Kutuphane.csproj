@@ -223,6 +223,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Login\images\icons8-membership-card-40.png" />
     <Content Include="memberDashboard\src\css\adminlte.css" />
     <Content Include="Error404\css\style.css" />
     <Content Include="Error404\img\library.jpg" />
@@ -249,6 +250,7 @@
     <Content Include="memberDashboard\src\img\bg3.jpg" />
     <Content Include="memberDashboard\src\img\bg4.jpg" />
     <Content Include="memberDashboard\src\img\favicon.png" />
+    <Content Include="Login\images\icons8-database-administrator-48.png" />
     <Content Include="memberDashboard\src\img\user.jpg" />
     <Content Include="memberDashboard\src\js\main.js" />
     <Content Include="showcase\assets\img\icons8-library-20.png" />
@@ -472,7 +474,6 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Layout.cshtml" />
     <Content Include="Views\Categories\Index.cshtml" />
-    <Content Include="Views\Categories\CategoryAdd.cshtml" />
     <Content Include="Views\Categories\FetchCategory.cshtml" />
     <Content Include="Views\Writers\Index.cshtml" />
     <Content Include="Views\Writers\WriterAdd.cshtml" />
@@ -481,7 +482,6 @@
     <Content Include="Views\Books\BookAdd.cshtml" />
     <Content Include="Views\Books\FetchBook.cshtml" />
     <Content Include="Views\Staff\Index.cshtml" />
-    <Content Include="Views\Staff\StaffAdd.cshtml" />
     <Content Include="Views\Staff\FetchStaff.cshtml" />
     <Content Include="Views\Members\Index.cshtml" />
     <Content Include="Views\Members\MembersAdd.cshtml" />
@@ -502,7 +502,6 @@
     <Content Include="Views\Writers\WriterBooks.cshtml" />
     <Content Include="Views\Members\BookHistory.cshtml" />
     <Content Include="Views\Notifications\Index.cshtml" />
-    <Content Include="Views\Notifications\NewNotification.cshtml" />
     <Content Include="Views\Notifications\FetchNotification.cshtml" />
     <Content Include="Views\Notifications\NotificationContent.cshtml" />
     <Content Include="Views\Memberdashboard\Partial1.cshtml" />
